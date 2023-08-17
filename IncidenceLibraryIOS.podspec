@@ -34,10 +34,10 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'IncidenceLibraryIOS/Classes/**/*'
   
-  s.resource_bundles = {
-     'IncidenceLibrary' => ['IncidenceLibrary/Assets/*.png']
+  #s.resource_bundles = {
+  #    'IncidenceLibrary' => ['IncidenceLibrary/Assets/*.png']
   #    'IncidenceLibrary' => ['IncidenceLibrary/Classes/**/*.{png,jpeg,jpg,storyboard,xib,xcassets}']
-  }
+  #}
   
   #s.resources = 'IncidenceLibrary/Classes/*.{png,jpeg,jpg,storyboard,xib,xcassets}'
   #s.resources = 'IncidenceLibrary/Classes/Presentation/Scenes/Development/DevelopmentScene.storyboard'

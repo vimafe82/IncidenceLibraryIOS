@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Development View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="DevelopmentViewController" id="Y6W-OH-hqX" customClass="DevelopmentViewController" customModule="IncidenceLibrary_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="kgH-qW-Xo8">
+                                <rect key="frame" x="24" y="72" width="366" height="766"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6s-GS-oAh">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="96"/>
+                                        <state key="normal" title="Cuenta - Account"/>
+                                        <connections>
+                                            <action selector="accountPressed:" destination="Ad2-wu-EvN" eventType="touchUpInside" id="2eV-KG-umZ"/>
+                                            <action selector="accountPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="P3T-RI-rdA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UvN-Vt-Jpy">
+                                        <rect key="frame" x="0.0" y="96" width="366" height="95.5"/>
+                                        <state key="normal" title="Assesment"/>
+                                        <connections>
+                                            <action selector="assesmentPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="QrA-Vw-CiL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Joe-A6-pz9">
+                                        <rect key="frame" x="0.0" y="191.5" width="366" height="96"/>
+                                        <state key="normal" title="HOME"/>
+                                        <connections>
+                                            <action selector="homePressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Eod-bW-fRT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PfN-eX-F67">
+                                        <rect key="frame" x="0.0" y="287.5" width="366" height="95.5"/>
+                                        <state key="normal" title="Añadir"/>
+                                        <connections>
+                                            <action selector="addPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="UiS-OJ-6xQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6d-Ew-bZw">
+                                        <rect key="frame" x="0.0" y="383" width="366" height="96"/>
+                                        <state key="normal" title="Dispositivos"/>
+                                        <connections>
+                                            <action selector="devicesPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="g0i-7z-Thk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1n-Yl-ABs">
+                                        <rect key="frame" x="0.0" y="479" width="366" height="95.5"/>
+                                        <state key="normal" title="Vehículos"/>
+                                        <connections>
+                                            <action selector="vehiculosPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7EL-Pb-470"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97R-ct-rvZ">
+                                        <rect key="frame" x="0.0" y="574.5" width="366" height="96"/>
+                                        <state key="normal" title="Incidencias"/>
+                                        <connections>
+                                            <action selector="incidencesPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="UoK-ar-vU0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ocm-5r-4Zb">
+                                        <rect key="frame" x="0.0" y="670.5" width="366" height="95.5"/>
+                                        <state key="normal" title="Inicio Sesión"/>
+                                        <connections>
+                                            <action selector="inicioSesionPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Xj1-jt-e0N"/>
+                                            <action selector="inicioSesionPressed:" destination="Ad2-wu-EvN" eventType="touchUpInside" id="cxn-W7-Pcm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="kgH-qW-Xo8" secondAttribute="trailing" constant="24" id="2ZO-1v-mCb"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="kgH-qW-Xo8" secondAttribute="bottom" constant="24" id="Jq3-7y-KE8"/>
+                            <constraint firstItem="kgH-qW-Xo8" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="24" id="pj4-8O-OL6"/>
+                            <constraint firstItem="kgH-qW-Xo8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="uh8-lY-Qsr"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Ad2-wu-EvN" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="48" y="44"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
