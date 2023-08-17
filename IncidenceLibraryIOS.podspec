@@ -36,7 +36,7 @@ TODO: Add long description of the pod here.
   
   s.resource_bundles = {
   #    'IncidenceLibrary' => ['IncidenceLibrary/Assets/*.png']
-      'IncidenceLibrary' => ['IncidenceLibrary/Classes/**/*.{png,jpeg,jpg,storyboard,xib,xcassets}']
+  #    'IncidenceLibrary' => ['IncidenceLibrary/Classes/**/*.{png,jpeg,jpg,storyboard,xib,xcassets}']
   }
   
   #s.resources = 'IncidenceLibrary/Classes/*.{png,jpeg,jpg,storyboard,xib,xcassets}'
