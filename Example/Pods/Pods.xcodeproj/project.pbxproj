@@ -575,7 +575,7 @@
 		A2A0350FC7B9B3E76226D16358AD8C2A /* IncidenceLibraryIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IncidenceLibraryIOS.debug.xcconfig; sourceTree = "<group>"; };
 		A2BEE0C11E76046919BC413DD4AC3126 /* Pods-IncidenceLibraryIOS_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-IncidenceLibraryIOS_Example.release.xcconfig"; sourceTree = "<group>"; };
 		A31C7400E9F7448F264DE57BB5E05198 /* RetryPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RetryPolicy.swift; path = Source/RetryPolicy.swift; sourceTree = "<group>"; };
-		A3B9017440BF6211054FE81F7F78BC76 /* Hue */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Hue; path = Hue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3B9017440BF6211054FE81F7F78BC76 /* Hue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5FA2AA24ED1D90BA1B66A390F0EA5C8 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
 		A6826D4F3143EDDF391F8E5B283CFDFB /* IncidenceLibraryIOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IncidenceLibraryIOS-dummy.m"; sourceTree = "<group>"; };
 		A6ED46DFE33AA232B5A073A2265B57F0 /* RedirectHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RedirectHandler.swift; path = Source/RedirectHandler.swift; sourceTree = "<group>"; };
@@ -1212,7 +1212,7 @@
 			isa = PBXGroup;
 			children = (
 				5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */,
-				A3B9017440BF6211054FE81F7F78BC76 /* Hue */,
+				A3B9017440BF6211054FE81F7F78BC76 /* Hue.framework */,
 				A14BD255D44E6AA8735EF2E8C4AA4C83 /* IncidenceLibraryIOS */,
 				C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher.framework */,
 				FB0501996895C086B60AB76D607AE23C /* Pods_IncidenceLibraryIOS_Example.framework */,
@@ -2133,7 +2133,7 @@
 			);
 			name = Hue;
 			productName = Hue;
-			productReference = A3B9017440BF6211054FE81F7F78BC76 /* Hue */;
+			productReference = A3B9017440BF6211054FE81F7F78BC76 /* Hue.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		3820B3D61248CD2A225DA312BC70F110 /* youtube-ios-player-helper-Assets */ = {
@@ -2968,7 +2968,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Hue/Hue-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Hue/Hue-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Hue/Hue.modulemap";
 				PRODUCT_MODULE_NAME = Hue;
@@ -3414,7 +3414,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Hue/Hue-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Hue/Hue-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Hue/Hue.modulemap";
 				PRODUCT_MODULE_NAME = Hue;
