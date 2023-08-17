@@ -1,0 +1,16 @@
+PODS:
+  - IncidenceLibraryIOS (0.1.0)
+
+DEPENDENCIES:
+  - IncidenceLibraryIOS (from `../`)
+
+EXTERNAL SOURCES:
+  IncidenceLibraryIOS:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  IncidenceLibraryIOS: 818c73515eef54293973b3dbf3f3b932058de8ad
+
+PODFILE CHECKSUM: b02bdfbe2ff265f4b18c57c2b43dbe836874ab0e
+
+COCOAPODS: 1.12.1
