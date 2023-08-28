@@ -63,11 +63,17 @@ class DevelopmentViewController: UIViewController, StoryboardInstantiable {
     }
     
     @IBAction func devicesPressed(_ sender: Any) {
+        /*
         let viewModel = DeviceListViewModel()
         let viewController = DeviceListViewController.create(with: viewModel)
        
         //navigationController?.setViewControllers([viewController], animated: true)
         //self.present(viewController, animated: true, completion: nil)
+        navigationController?.pushViewController(viewController, animated: true)
+        */
+        
+        
+        let viewController = IncidenceLibraryManager.shared.getDeviceListViewController()
         navigationController?.pushViewController(viewController, animated: true)
     }
     

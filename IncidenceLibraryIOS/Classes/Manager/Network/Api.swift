@@ -103,7 +103,7 @@ extension Api {
         
         //let path = "user/validateApiKey"
         //simpleRequest(method: .post, path: path, params: params, completion: completion)
-        let path = "config/home_video"
+        let path = "config/home_video1111"
         simpleRequest(method: .get, path: path, completion: completion)
     }
     
