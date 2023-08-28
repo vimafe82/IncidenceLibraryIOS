@@ -52,9 +52,16 @@ extension Api {
             headers[Api.HEADER_DEVICE_ID] = String(deviceId!)
         }
         
-        headers[Api.HEADER_APP] = Bundle.main.bundleIdentifier
+        //headers[Api.HEADER_APP] = Bundle.main.bundleIdentifier
+        headers[Api.HEADER_APP] = "es.incidence.app.test2"
         headers[Api.HEADER_LANG] = Core.shared.getLanguage()
         headers[Api.HEADER_PLATFORM] = "ios"
+        
+        // token: 254c6025c2b3e6c2495bc535b434037a
+        // deviceId: 10107
+        // app: es.incidence.app.pre2
+        // lang: es
+        // platform: ios
         
         return headers
     }
@@ -87,6 +94,17 @@ extension Api {
             #endif
             completion(iresponse)
         }
+    }
+    
+    func validateApiKey(apiKey: String, completion: @escaping (IResponse) -> Void)
+    {
+        var params:Parameters = [:]
+        params["apiKey"] = apiKey
+        
+        //let path = "user/validateApiKey"
+        //simpleRequest(method: .post, path: path, params: params, completion: completion)
+        let path = "config/home_video"
+        simpleRequest(method: .get, path: path, completion: completion)
     }
     
     //func signIn(email: String?, phone: String?, completion: @escaping (Result<IResponse, Error>) -> Void) {

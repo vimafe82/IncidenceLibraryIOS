@@ -36,7 +36,7 @@
 		2F3AF6571FD70E55E46CD28DD615C22A /* AuthenticationChallengeResponsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AA5207444336935911FA69871844B8 /* AuthenticationChallengeResponsable.swift */; };
 		320C0D7A88AA812EFB20016BA1F5D7AE /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC39E1ECFEC03D7C133240F5A34F761 /* AFError.swift */; };
 		35F95CDF4D721BD19967F5E541921278 /* KingfisherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE8B4F0CB08E341410A94B038CA1FC1 /* KingfisherManager.swift */; };
-		36C50BA25C577BB33D12A546B05C7118 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D512FA57C0B0D1C361436DDBA7411 /* ReplaceMe.swift */; };
+		36C50BA25C577BB33D12A546B05C7118 /* IncidenceLibraryIncidenceLibraryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D512FA57C0B0D1C361436DDBA7411 /* IncidenceLibraryIncidenceLibraryManager.swift */; };
 		375365D400C8EDA3C32D784B8DFC24E4 /* CacheSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4D2170377E56BDF01292172D3D516 /* CacheSerializer.swift */; };
 		3856A15F9F1959398F118A1646EF7325 /* youtube-ios-player-helper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DF07ACF8FB16C5CBFB09FC0687E77788 /* youtube-ios-player-helper-dummy.m */; };
 		385BC4B250B6A6DB8AAAEA77D5B7A46F /* Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6762DFDABD313CB11A18C1D8C04126F /* Combine.swift */; };
@@ -375,6 +375,12 @@
 		E53EB31F2A8EA7E3006D9153 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53EB2202A8EA7E1006D9153 /* Answer.swift */; };
 		E53EB3202A8EA7E3006D9153 /* IncidenceDGT.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53EB2212A8EA7E1006D9153 /* IncidenceDGT.swift */; };
 		E53EB3212A8EA7E3006D9153 /* Asitur.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53EB2222A8EA7E1006D9153 /* Asitur.swift */; };
+		E5C53A8D2A8F465C0086A3BE /* IncidenceLibraryConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C53A8C2A8F465C0086A3BE /* IncidenceLibraryConfig.swift */; };
+		E5C53A8F2A8F470F0086A3BE /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C53A8E2A8F470F0086A3BE /* Logger.swift */; };
+		E5C53A912A8F47360086A3BE /* LogDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C53A902A8F47360086A3BE /* LogDestination.swift */; };
+		E5C53A932A8F47540086A3BE /* LogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C53A922A8F47540086A3BE /* LogFormatter.swift */; };
+		E5C53A952A8F48100086A3BE /* ConsoleLogDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C53A942A8F48100086A3BE /* ConsoleLogDestination.swift */; };
+		E5C53A972A8F48360086A3BE /* BaseLogDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C53A962A8F48360086A3BE /* BaseLogDestination.swift */; };
 		E6251F02EE12804D1B66AE32E716E664 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E605A947EC063695DEDF943AC21D6A /* SessionDelegate.swift */; };
 		ECE6F23823454A8FDB3F97CE1A7CD182 /* RedirectHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6ED46DFE33AA232B5A073A2265B57F0 /* RedirectHandler.swift */; };
 		ECF2F956B37A4C28B228BC291A57AD6E /* RequestTaskMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037D7AE73798242E09B0E80B23F13D44 /* RequestTaskMap.swift */; };
@@ -479,7 +485,7 @@
 		07DCD8316B62090A2AB643A15A75D09A /* ImageProgressive.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageProgressive.swift; path = Sources/Image/ImageProgressive.swift; sourceTree = "<group>"; };
 		081934362984937A2068A36E09DAAD43 /* SessionDataTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDataTask.swift; path = Sources/Networking/SessionDataTask.swift; sourceTree = "<group>"; };
 		090561CCB2DD209D0C93229129355809 /* KFImageOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KFImageOptions.swift; path = Sources/SwiftUI/KFImageOptions.swift; sourceTree = "<group>"; };
-		0A8D512FA57C0B0D1C361436DDBA7411 /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = IncidenceLibraryIOS/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
+		0A8D512FA57C0B0D1C361436DDBA7411 /* IncidenceLibraryIncidenceLibraryManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IncidenceLibraryIncidenceLibraryManager.swift; path = IncidenceLibraryIOS/Classes/IncidenceLibraryIncidenceLibraryManager.swift; sourceTree = "<group>"; };
 		0B632665D0AA71550869F1D11AF51D80 /* ParameterEncoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoder.swift; path = Source/ParameterEncoder.swift; sourceTree = "<group>"; };
 		0BF06404726DBF395FD679DC8C847410 /* ImageDownloaderDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageDownloaderDelegate.swift; path = Sources/Networking/ImageDownloaderDelegate.swift; sourceTree = "<group>"; };
 		0C54C18DE31E6790E42B7957FD44AA4B /* AnimatedImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimatedImageView.swift; path = Sources/Views/AnimatedImageView.swift; sourceTree = "<group>"; };
@@ -878,6 +884,12 @@
 		E53EB2212A8EA7E1006D9153 /* IncidenceDGT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncidenceDGT.swift; sourceTree = "<group>"; };
 		E53EB2222A8EA7E1006D9153 /* Asitur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asitur.swift; sourceTree = "<group>"; };
 		E57A99A5BA3EDFA888457AEE45A2A02B /* ImageProcessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageProcessor.swift; path = Sources/Image/ImageProcessor.swift; sourceTree = "<group>"; };
+		E5C53A8C2A8F465C0086A3BE /* IncidenceLibraryConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncidenceLibraryConfig.swift; sourceTree = "<group>"; };
+		E5C53A8E2A8F470F0086A3BE /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		E5C53A902A8F47360086A3BE /* LogDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogDestination.swift; sourceTree = "<group>"; };
+		E5C53A922A8F47540086A3BE /* LogFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFormatter.swift; sourceTree = "<group>"; };
+		E5C53A942A8F48100086A3BE /* ConsoleLogDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleLogDestination.swift; sourceTree = "<group>"; };
+		E5C53A962A8F48360086A3BE /* BaseLogDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLogDestination.swift; sourceTree = "<group>"; };
 		E5FBA54F589D24C056A41A782553E9F8 /* GraphicsContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GraphicsContext.swift; path = Sources/Image/GraphicsContext.swift; sourceTree = "<group>"; };
 		E65AF2E23D88F6B93F330978A28114D4 /* IncidenceLibraryIOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = IncidenceLibraryIOS.modulemap; sourceTree = "<group>"; };
 		E6E16721BFD437453DCD85F6BA04EFF4 /* Pods-IncidenceLibraryIOS_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-IncidenceLibraryIOS_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1230,9 +1242,15 @@
 				E53EB2092A8EA7E1006D9153 /* Domain */,
 				E53EB0EF2A8EA7DF006D9153 /* Manager */,
 				E53EB1012A8EA7DF006D9153 /* Presentation */,
-				0A8D512FA57C0B0D1C361436DDBA7411 /* ReplaceMe.swift */,
+				0A8D512FA57C0B0D1C361436DDBA7411 /* IncidenceLibraryIncidenceLibraryManager.swift */,
 				648A07E56BA0DA6E277B224CD815F04B /* Pod */,
 				5DECC14C92592B2562C0C3CC5529471D /* Support Files */,
+				E5C53A8C2A8F465C0086A3BE /* IncidenceLibraryConfig.swift */,
+				E5C53A8E2A8F470F0086A3BE /* Logger.swift */,
+				E5C53A902A8F47360086A3BE /* LogDestination.swift */,
+				E5C53A922A8F47540086A3BE /* LogFormatter.swift */,
+				E5C53A942A8F48100086A3BE /* ConsoleLogDestination.swift */,
+				E5C53A962A8F48360086A3BE /* BaseLogDestination.swift */,
 			);
 			name = IncidenceLibraryIOS;
 			path = ../..;
@@ -2556,6 +2574,7 @@
 				E53EB2562A8EA7E2006D9153 /* HomeMapViewModel.swift in Sources */,
 				E53EB2D72A8EA7E3006D9153 /* AccountMyDataViewModel.swift in Sources */,
 				E53EB2C72A8EA7E3006D9153 /* ReportInstructionsViewController.swift in Sources */,
+				E5C53A8F2A8F470F0086A3BE /* Logger.swift in Sources */,
 				E53EB2952A8EA7E2006D9153 /* MenuViewController.swift in Sources */,
 				E53EB2F82A8EA7E3006D9153 /* YoutubeViewController.swift in Sources */,
 				E53EB28C2A8EA7E2006D9153 /* AddSelectionViewController.swift in Sources */,
@@ -2568,6 +2587,7 @@
 				E53EB2F62A8EA7E3006D9153 /* DeviceInfoViewController.swift in Sources */,
 				E53EB2A02A8EA7E2006D9153 /* VehiclesBeaconEditViewModel.swift in Sources */,
 				E53EB2602A8EA7E2006D9153 /* RegistrationTelephoneViewModel.swift in Sources */,
+				E5C53A8D2A8F465C0086A3BE /* IncidenceLibraryConfig.swift in Sources */,
 				E53EB3212A8EA7E3006D9153 /* Asitur.swift in Sources */,
 				E53EB3192A8EA7E3006D9153 /* BeaconType.swift in Sources */,
 				E53EB2632A8EA7E2006D9153 /* RegistrationSuccessBeaconViewModel.swift in Sources */,
@@ -2634,6 +2654,7 @@
 				E53EB27B2A8EA7E2006D9153 /* RegistrationTelephoneViewController.swift in Sources */,
 				E53EB29C2A8EA7E2006D9153 /* VehiclesListViewModel.swift in Sources */,
 				E53EB2BD2A8EA7E2006D9153 /* ReportAssesmentFeedbackViewController.swift in Sources */,
+				E5C53A932A8F47540086A3BE /* LogFormatter.swift in Sources */,
 				E53EB2422A8EA7E1006D9153 /* SlidingButton.swift in Sources */,
 				E53EB2672A8EA7E2006D9153 /* RegistrationInsuranceInfoViewModel.swift in Sources */,
 				E53EB2642A8EA7E2006D9153 /* RegistrationStepsViewModel.swift in Sources */,
@@ -2692,6 +2713,7 @@
 				E53EB2802A8EA7E2006D9153 /* RegistrationInsuranceInfoViewController.swift in Sources */,
 				E53EB25F2A8EA7E2006D9153 /* RegistrationVehicleViewModel.swift in Sources */,
 				E53EB2752A8EA7E2006D9153 /* RegistrationPlateViewController.swift in Sources */,
+				E5C53A912A8F47360086A3BE /* LogDestination.swift in Sources */,
 				E53EB2A72A8EA7E2006D9153 /* VehiclesBeaconViewController.swift in Sources */,
 				E53EB2D42A8EA7E3006D9153 /* IncidencesCarsListViewController.swift in Sources */,
 				E53EB30B2A8EA7E3006D9153 /* IdentityType.swift in Sources */,
@@ -2734,6 +2756,7 @@
 				E53EB2412A8EA7E1006D9153 /* EasyTipView.swift in Sources */,
 				E53EB2DA2A8EA7E3006D9153 /* AccountNotificationViewModel.swift in Sources */,
 				E53EB31A2A8EA7E3006D9153 /* TutorialVideo.swift in Sources */,
+				E5C53A952A8F48100086A3BE /* ConsoleLogDestination.swift in Sources */,
 				E53EB2DB2A8EA7E3006D9153 /* AccountActiveSessionsViewModel.swift in Sources */,
 				E53EB24E2A8EA7E1006D9153 /* TextButton.swift in Sources */,
 				E53EB28E2A8EA7E2006D9153 /* AddBeaconToCarViewController.swift in Sources */,
@@ -2752,8 +2775,9 @@
 				E53EB2352A8EA7E1006D9153 /* LocationManager.swift in Sources */,
 				E53EB2792A8EA7E2006D9153 /* RegistrationBeaconViewController.swift in Sources */,
 				E53EB2382A8EA7E1006D9153 /* CustomSlider.swift in Sources */,
-				36C50BA25C577BB33D12A546B05C7118 /* ReplaceMe.swift in Sources */,
+				36C50BA25C577BB33D12A546B05C7118 /* IncidenceLibraryIncidenceLibraryManager.swift in Sources */,
 				E53EB26A2A8EA7E2006D9153 /* RegistrationInsuranceViewModel.swift in Sources */,
+				E5C53A972A8F48360086A3BE /* BaseLogDestination.swift in Sources */,
 				E53EB3162A8EA7E3006D9153 /* Insurance.swift in Sources */,
 				E53EB2872A8EA7E2006D9153 /* EcommerceVC.swift in Sources */,
 				E53EB26B2A8EA7E2006D9153 /* RegistrationEmailViewModel.swift in Sources */,
