@@ -65,7 +65,7 @@ class TextFieldWithSelectView: UIView {
     private lazy var successIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "Check")?.withRenderingMode(.alwaysTemplate)
+        imageView.image = UIImage.app( "Check")?.withRenderingMode(.alwaysTemplate)
         imageView.tintColor = UIColor.app(.success)
         imageView.isHidden = true
         
@@ -75,7 +75,7 @@ class TextFieldWithSelectView: UIView {
     private lazy var editIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "Edit")
+        imageView.image = UIImage.app( "Edit")
         imageView.isHidden = true
         
         return imageView
@@ -170,7 +170,7 @@ class TextFieldWithSelectView: UIView {
         let rightView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 44, height: 30)))
         let clearButton = UIButton(frame: CGRect(origin: CGPoint(x: 4, y: 0), size: CGSize(width: 40, height: 24)))
         //clearButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -14, bottom: 0, right: 14)
-        clearButton.setImage(UIImage(named: "Delete-1")!, for: .normal)
+        clearButton.setImage(UIImage.app( "Delete-1")!, for: .normal)
         rightView.addSubview(clearButton)
         textField.rightView = rightView
         clearButton.addTarget(self, action: #selector(clearClicked), for: .touchUpInside)
@@ -187,7 +187,7 @@ class TextFieldWithSelectView: UIView {
         selectTextField.translatesAutoresizingMaskIntoConstraints = false
         selectTextField.tintColor = UIColor.app(.black600)
         selectTextField.font = UIFont.app(.primaryRegular, size: 16)
-        let imageView = UIImageView(image: UIImage(named: "Direction=Up"))
+        let imageView = UIImageView(image: UIImage.app( "Direction=Up"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         selectTextField.rightView = imageView
         selectTextField.textAlignment = .center

@@ -60,7 +60,7 @@ class RegistrationInsuranceViewController: IABaseViewController, StoryboardInsta
         let size = 24
         let outerView = UIView(frame: CGRect(x: 0, y: 0, width: size+padding, height: size) )
         let iconView  = UIImageView(frame: CGRect(x: padding, y: 0, width: size, height: size))
-        iconView.image = UIImage(named: "Search")
+        iconView.image = UIImage.app( "Search")
         outerView.addSubview(iconView)
 
         

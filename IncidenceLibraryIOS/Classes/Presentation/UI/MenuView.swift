@@ -66,7 +66,7 @@ class MenuView: UIView {
     let arrowImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "Direction=Right-1")?.withRenderingMode(.alwaysTemplate)
+        imageView.image = UIImage.app( "Direction=Right-1")?.withRenderingMode(.alwaysTemplate)
         return imageView
     }()
     lazy var customSwitch: CustomUISwitch = {
@@ -175,27 +175,27 @@ class MenuView: UIView {
         
         switch rightIcon {
         case .arrow:
-            let image = UIImage(named: "Direction=Right-1")?.withRenderingMode(.alwaysTemplate)
+            let image = UIImage.app( "Direction=Right-1")?.withRenderingMode(.alwaysTemplate)
             arrowImageView.image = image
             arrowImageView.tintColor = color.getColor()
             arrowImageView.isHidden = false
         case .arrowUp:
-            let image = UIImage(named: "Direction=Up-2")?.withRenderingMode(.alwaysTemplate)
+            let image = UIImage.app( "Direction=Up-2")?.withRenderingMode(.alwaysTemplate)
             arrowImageView.image = image
             arrowImageView.tintColor = color.getColor()
             arrowImageView.isHidden = false
         case .arrowDown:
-            let image = UIImage(named: "Direction=Down-2")?.withRenderingMode(.alwaysTemplate)
+            let image = UIImage.app( "Direction=Down-2")?.withRenderingMode(.alwaysTemplate)
             arrowImageView.image = image
             arrowImageView.tintColor = color.getColor()
             arrowImageView.isHidden = false
         case .add:
-            let image = UIImage(named: "More")?.withRenderingMode(.alwaysTemplate)
+            let image = UIImage.app( "More")?.withRenderingMode(.alwaysTemplate)
             arrowImageView.image = image
             arrowImageView.tintColor = color.getColor()
             arrowImageView.isHidden = false
         case .info:
-            let image = UIImage(named: "info_blue")?.withRenderingMode(.alwaysTemplate)
+            let image = UIImage.app( "info_blue")?.withRenderingMode(.alwaysTemplate)
             arrowImageView.image = image
             arrowImageView.tintColor = MenuViewColors.blue.getColor()
             arrowImageView.isHidden = false
@@ -204,7 +204,7 @@ class MenuView: UIView {
             arrowImageView.isHidden = true
             break
         default:
-            let image = UIImage(named: "Logout")?.withRenderingMode(.alwaysTemplate)
+            let image = UIImage.app( "Logout")?.withRenderingMode(.alwaysTemplate)
             arrowImageView.image = image
             arrowImageView.tintColor = UIColor.app(.errorPrimary)
             arrowImageView.isHidden = false
@@ -342,7 +342,7 @@ class MenuView: UIView {
         
         
 //        let contentView = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 82))
-//                    contentView.image = UIImage(named: "easytipview")
+//                    contentView.image = UIImage.app( "easytipview")
 //                    EasyTipView.show(forView: self.buttonG,
 //                                     contentView: contentView,
 //                                     preferences: preferences)
@@ -376,7 +376,7 @@ class MenuView: UIView {
             
             let crossImageView = UIImageView(frame: CGRect(x: width - 16 - 24, y: 16, width: 24, height: 24))
             //crossImageView.backgroundColor = UIColor.app(.black)
-            crossImageView.image = UIImage(named: "Cross")
+            crossImageView.image = UIImage.app( "Cross")
             crossImageView.isUserInteractionEnabled = true
             let tap = UITapGestureRecognizer(target: self, action: #selector(closeTooltip))
             crossImageView.addGestureRecognizer(tap)
@@ -384,7 +384,7 @@ class MenuView: UIView {
             
             let imageView = UIImageView(frame: CGRect(x:0, y:yImage, width:0, height:0))
             //imageView.backgroundColor = UIColor.app(.errorPrimary)
-            if let image = UIImage(named: "device_img") {
+            if let image = UIImage.app( "device_img") {
                 let ratio = image.size.width / image.size.height
                 let newHeight = stackView.frame.width / ratio
                 imageView.frame.size = CGSize(width: width, height: newHeight)
@@ -442,7 +442,7 @@ class MenuView: UIView {
             
             let imageView = UIImageView()
             imageView.backgroundColor = UIColor.app(.errorPrimary)
-            if let image = UIImage(named: "device_img") {
+            if let image = UIImage.app( "device_img") {
                 let ratio = image.size.width / image.size.height
                 let newHeight = stackView.frame.width / ratio
                 imageView.frame.size = CGSize(width: width, height: newHeight)
@@ -472,7 +472,7 @@ class MenuView: UIView {
         
         
 //        let contentView = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 82))
-//                    contentView.image = UIImage(named: "easytipview")
+//                    contentView.image = UIImage.app( "easytipview")
 //                    EasyTipView.show(forView: self.buttonG,
 //                                     contentView: contentView,
 //                                     preferences: preferences)
@@ -506,7 +506,7 @@ class MenuView: UIView {
             
             let crossImageView = UIImageView(frame: CGRect(x: width - 16 - 24, y: 16, width: 24, height: 24))
             //crossImageView.backgroundColor = UIColor.app(.black)
-            crossImageView.image = UIImage(named: "Cross")
+            crossImageView.image = UIImage.app( "Cross")
             crossImageView.isUserInteractionEnabled = true
             let tap = UITapGestureRecognizer(target: self, action: #selector(closeTooltip))
             crossImageView.addGestureRecognizer(tap)

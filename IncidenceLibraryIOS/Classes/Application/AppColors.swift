@@ -40,6 +40,8 @@ enum AssetsColor: String {
 
 extension UIColor {
     static func app(_ name: AssetsColor) -> UIColor? {
-        return UIColor(named: name.rawValue)
+        let bundle = Bundle(for: IncidenceLibraryManager.self)
+        let color = UIColor(named: name.rawValue, in: bundle, compatibleWith: nil)
+        return color
     }
 }

@@ -37,9 +37,9 @@ class AddSelectionViewController: IABaseViewController, StoryboardInstantiable {
         helperLabel.text = viewModel.helperLabelText
         helperLabel.setLineSpacing(lineSpacing: 8, lineHeightMultiple: 0, aligment: .center)
         setUpButton(carButton)
-        carButton.setImage(UIImage(named: "Car=Black"), for: .normal)
+        carButton.setImage(UIImage.app( "Car=Black"), for: .normal)
         setUpButton(beaconButton)
-        beaconButton.setImage(UIImage(named: "beacon"), for: .normal)
+        beaconButton.setImage(UIImage.app( "beacon"), for: .normal)
     }
     
 

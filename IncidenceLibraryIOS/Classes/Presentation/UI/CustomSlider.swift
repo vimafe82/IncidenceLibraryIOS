@@ -22,14 +22,14 @@ class CustomSlider: UISlider {
     
     private lazy var stateImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: -20, y: -75, width: 60, height: 80))
-        imageView.image = UIImage(named: "state-neutral")
+        imageView.image = UIImage.app( "state-neutral")
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
     private lazy var shadowImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
-        imageView.image = UIImage(named: "thumb")
+        imageView.image = UIImage.app( "thumb")
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -84,15 +84,15 @@ class CustomSlider: UISlider {
 
         switch newValue {
         case 0:
-            stateImageView.image = UIImage(named: "valoration_face_very_bad")
+            stateImageView.image = UIImage.app( "valoration_face_very_bad")
         case 1:
-            stateImageView.image = UIImage(named: "valoration_face_bad")
+            stateImageView.image = UIImage.app( "valoration_face_bad")
         case 2:
-            stateImageView.image = UIImage(named: "valoration_face_neutral")
+            stateImageView.image = UIImage.app( "valoration_face_neutral")
         case 3:
-            stateImageView.image = UIImage(named: "valoration_face_good")
+            stateImageView.image = UIImage.app( "valoration_face_good")
         case 4:
-            stateImageView.image = UIImage(named: "valoration_face_very_good")
+            stateImageView.image = UIImage.app( "valoration_face_very_good")
         default:
             break
         }

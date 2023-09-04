@@ -65,7 +65,7 @@ class BatteryExpirationView: UIView {
         infoButton.anchor(left: titleLabel.rightAnchor, leftConstant: 4, widthConstant: 24, heightConstant: 24)
         infoButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -24).isActive = true
         infoButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).isActive = true
-        infoButton.setImage(UIImage(named: "info_blue")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        infoButton.setImage(UIImage.app( "info_blue")?.withRenderingMode(.alwaysTemplate), for: .normal)
         infoButton.setTitle(nil, for: .normal)
         infoButton.addTarget(self, action: #selector(tooltipButtonPressed), for: .touchUpInside)
         
@@ -88,7 +88,7 @@ class BatteryExpirationView: UIView {
         self.addSubview(subTitleImage)
         //subTitleImage.anchor(top: valueLabel.bottomAnchor, right: self.rightAnchor, topConstant: 10, rightConstant: 24, heightConstant: 24)
         subTitleImage.anchor(top: valueProgress.bottomAnchor, left: subTitleLabel.rightAnchor, topConstant: 10, leftConstant: 4, widthConstant: 20, heightConstant: 20)
-        subTitleImage.image = UIImage(named: "battery")?.withRenderingMode(.alwaysTemplate)
+        subTitleImage.image = UIImage.app( "battery")?.withRenderingMode(.alwaysTemplate)
         subTitleImage.tintColor = UIColor.app(.black400)
         
         self.addSubview(separatorView)

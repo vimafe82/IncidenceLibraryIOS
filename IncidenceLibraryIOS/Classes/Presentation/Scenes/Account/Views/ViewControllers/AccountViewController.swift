@@ -35,23 +35,23 @@ public class AccountViewController: IABaseViewController, StoryboardInstantiable
     override func setUpUI() {
         super.setUpUI()
         
-        notificationsMenuView.configure(text: "notifications".localized(), iconImage: UIImage(named: "Bell"), switchDelegate: self)
+        notificationsMenuView.configure(text: "notifications".localized(), iconImage: UIImage.app( "Bell"), switchDelegate: self)
 /*
-        notificationsMenuView.configure(text: "Notificaciones", iconImage: UIImage(named: "Bell"))
+        notificationsMenuView.configure(text: "Notificaciones", iconImage: UIImage.app( "Bell"))
         notificationsMenuView.onTap { [weak self] in
             let vm = AccountNotificationViewModel()
             let vc = AccountNotificationViewController.create(with: vm)
             self?.navigationController?.pushViewController(vc, animated: true)
         }
         */
-        activeSessionsMenuView.configure(text: "active_sessions".localized(), iconImage: UIImage(named: "Mobile"))
+        activeSessionsMenuView.configure(text: "active_sessions".localized(), iconImage: UIImage.app( "Mobile"))
         activeSessionsMenuView.onTap { [weak self] in
             let vm = AccountActiveSessionsViewModel()
             let vc = AccountActiveSessionsViewController.create(with: vm)
             self?.navigationController?.pushViewController(vc, animated: true)
         }
         
-        myDataMenuView.configure(text: "my_data".localized(), iconImage: UIImage(named: "User"))
+        myDataMenuView.configure(text: "my_data".localized(), iconImage: UIImage.app( "User"))
         myDataMenuView.onTap { [weak self] in
             let vm = AccountMyDataViewModel()
             let vc = AccountMyDataViewController.create(with: vm)
@@ -59,7 +59,7 @@ public class AccountViewController: IABaseViewController, StoryboardInstantiable
         }
         
         /*
-        helpMenuView.configure(text: "help".localized(), iconImage: UIImage(named: "Help"))
+        helpMenuView.configure(text: "help".localized(), iconImage: UIImage.app( "Help"))
         helpMenuView.onTap { [weak self] in
             let vm = AccountHelpViewModel()
             let vc = AccountHelpViewController.create(with: vm)

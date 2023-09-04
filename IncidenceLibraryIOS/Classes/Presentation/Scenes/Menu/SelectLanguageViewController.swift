@@ -57,7 +57,7 @@ class SelectLanguageViewController: IABaseViewController, StoryboardInstantiable
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(userDidTap(tapGestureRecognizer:)))
         imgClose.addGestureRecognizer(tapGesture)
         
-        let image = UIImage(named: "Close")?.withRenderingMode(.alwaysTemplate)
+        let image = UIImage.app( "Close")?.withRenderingMode(.alwaysTemplate)
         imgCloseIcon.image = image
         imgCloseIcon.tintColor = UIColor.app(.white)
     }

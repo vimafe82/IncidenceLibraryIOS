@@ -57,7 +57,7 @@ public class ReportBaseViewController: IABaseViewController {
         
         let infoImageView = UIImageView(frame: CGRect(x: widthMargin, y: widthMargin, width: widthCross, height: widthCross))
         //infoImageView.backgroundColor = UIColor.app(.black)
-        infoImageView.image = UIImage(named: "volume_up")
+        infoImageView.image = UIImage.app( "volume_up")
         infoImageView.isUserInteractionEnabled = true
         //let tap = UITapGestureRecognizer(target: self, action: #selector(closeTooltip))
         //crossImageView.addGestureRecognizer(tap)
@@ -75,7 +75,7 @@ public class ReportBaseViewController: IABaseViewController {
         
         let crossImageView = UIImageView(frame: CGRect(x: width - widthMargin - widthCross, y: widthMargin, width: widthCross, height: widthCross))
         //crossImageView.backgroundColor = UIColor.app(.black)
-        crossImageView.image = UIImage(named: "Close")
+        crossImageView.image = UIImage.app( "Close")
         crossImageView.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(closeAlertView))
         crossImageView.addGestureRecognizer(tap)
@@ -137,7 +137,7 @@ public class ReportBaseViewController: IABaseViewController {
         
         let infoImageView = UIImageView(frame: CGRect(x: widthMargin, y: widthMargin, width: widthCross, height: widthCross))
         //infoImageView.backgroundColor = UIColor.app(.black)
-        infoImageView.image = UIImage(named: "historial")
+        infoImageView.image = UIImage.app( "historial")
         infoImageView.isUserInteractionEnabled = true
         //let tap = UITapGestureRecognizer(target: self, action: #selector(closeTooltip))
         //crossImageView.addGestureRecognizer(tap)
@@ -155,7 +155,7 @@ public class ReportBaseViewController: IABaseViewController {
         
         let crossImageView = UIImageView(frame: CGRect(x: width - widthMargin - widthCross, y: widthMargin, width: widthCross, height: widthCross))
         //crossImageView.backgroundColor = UIColor.app(.black)
-        crossImageView.image = UIImage(named: "Close")
+        crossImageView.image = UIImage.app( "Close")
         crossImageView.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(closeAlertTimeView))
         crossImageView.addGestureRecognizer(tap)
@@ -485,7 +485,7 @@ public class ReportBaseViewController: IABaseViewController {
                             Core.shared.callNumber(phoneNumber: phone)
                             self.navigationController?.popToRootViewController(animated: true)
                         }
-                        let image = UIImage(named: "PhoneBlack")?.withRenderingMode(.alwaysOriginal)
+                        let image = UIImage.app( "PhoneBlack")?.withRenderingMode(.alwaysOriginal)
                         firstAction.setValue(image, forKey: "image")
 
                         let cancelAction: UIAlertAction = UIAlertAction(title: "cancel".localized(), style: .destructive) { action -> Void in

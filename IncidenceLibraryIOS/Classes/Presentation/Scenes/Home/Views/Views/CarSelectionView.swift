@@ -75,7 +75,7 @@ class CarSelectionView: UIView {
         
         if vehicle.beacon != nil {
             beaconImageView.isHidden = false
-            beaconImageView.image = UIImage(named: "Type=Yes")
+            beaconImageView.image = UIImage.app( "Type=Yes")
             beaconImageView.anchor(widthConstant: 24, heightConstant: 24)
         }
 
@@ -83,9 +83,9 @@ class CarSelectionView: UIView {
         case .arrow,
              .arrowRight,
              .selected:
-            rightIconImageView.image = type == .arrow ? UIImage(named: "Direction=Down-2") : UIImage(named: "CheckCircle")
+            rightIconImageView.image = type == .arrow ? UIImage.app( "Direction=Down-2") : UIImage.app( "CheckCircle")
             if (type == .arrowRight) {
-                rightIconImageView.image = UIImage(named: "Direction=Right-1")
+                rightIconImageView.image = UIImage.app( "Direction=Right-1")
             }
             addSubview(rightIconImageView)
             rightIconImageView.anchor(right: rightAnchor, rightConstant: 0, widthConstant: 24, heightConstant: 24)

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IncidenceLibraryIOS
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   ) -> Bool {
     
       //let rootVC = AppNavigator.shared.rootViewController
+      
+      let config = IncidenceLibraryConfig(apiKey: .init("mapfre"))
+      IncidenceLibraryManager.setup(config)
+      IncidenceLibraryManager.shared.printStatusConfig()
       
       let firstViewController = DevelopmentViewController.create()
       let rootVC = UINavigationController(rootViewController: firstViewController)

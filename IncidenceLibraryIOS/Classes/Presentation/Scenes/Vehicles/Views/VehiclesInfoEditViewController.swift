@@ -113,7 +113,7 @@ class VehiclesInfoEditViewController: IABaseViewController, StoryboardInstantiab
     }
     
     private func setUpNavigation() {
-        let closeButton = UIBarButtonItem(image: UIImage(named: "Close")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(closePressed))
+        let closeButton = UIBarButtonItem(image: UIImage.app( "Close")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(closePressed))
         closeButton.imageInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 4)
         navigationItem.rightBarButtonItem = closeButton
     }

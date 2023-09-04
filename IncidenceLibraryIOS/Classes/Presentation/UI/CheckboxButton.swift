@@ -31,7 +31,7 @@ public class CheckboxButton: UIButton {
     
     func updateCheckbox() {
         let imageName = isSelected ? "checkbox_on" : "checkbox_off"
-        let image = UIImage(named: imageName)
+        let image = UIImage.app( imageName)
         setImage(image, for: .normal)
     }
     

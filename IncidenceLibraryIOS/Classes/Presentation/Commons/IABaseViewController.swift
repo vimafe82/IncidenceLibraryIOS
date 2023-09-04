@@ -64,7 +64,7 @@ public class IABaseViewController: UIViewController, UIGestureRecognizerDelegate
         var leftNavigationButtons: [UIBarButtonItem] = []
 
         if forceShowBackButton || (navigationController?.viewControllers.count ?? 0) > 1 {
-            let image = UIImage(named: "Direction=Left")?.withRenderingMode(.alwaysTemplate)
+            let image = UIImage.app( "Direction=Left")?.withRenderingMode(.alwaysTemplate)
             let backButton = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(backPressed))
             backButton.imageInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: -6)
             leftNavigationButtons.append(backButton)

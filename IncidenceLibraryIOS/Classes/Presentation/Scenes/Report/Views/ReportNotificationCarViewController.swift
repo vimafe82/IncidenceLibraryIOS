@@ -178,7 +178,7 @@ class ReportNotificationCarViewController: ReportBaseViewController, StoryboardI
     }
     
     private func setUpNavigation() {
-        speechButton = UIBarButtonItem(image: UIImage(named: "ic_nav_micro_off")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(speechPressed))
+        speechButton = UIBarButtonItem(image: UIImage.app( "ic_nav_micro_off")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(speechPressed))
         speechButton!.imageInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 4)
         navigationItem.rightBarButtonItem = speechButton!
     }
@@ -188,7 +188,7 @@ class ReportNotificationCarViewController: ReportBaseViewController, StoryboardI
     }
     
     func updateSpeechButton() {
-        let image = UIImage(named: SpeechRecognizer.isEnabled ? "ic_nav_micro_on" : "ic_nav_micro_off")?.withRenderingMode(.alwaysOriginal)
+        let image = UIImage.app( SpeechRecognizer.isEnabled ? "ic_nav_micro_on" : "ic_nav_micro_off")?.withRenderingMode(.alwaysOriginal)
         speechButton?.image = image
     }
     

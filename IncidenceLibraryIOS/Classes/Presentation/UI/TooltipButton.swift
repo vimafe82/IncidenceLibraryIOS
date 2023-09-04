@@ -42,7 +42,7 @@ class TooltipButton: UIButton {
     
     private func setUpUI() {
         
-        self.setImage(UIImage(named: "Icon"), for: .normal)
+        self.setImage(UIImage.app( "Icon"), for: .normal)
         self.setTitle(nil, for: .normal)
         
         
@@ -66,7 +66,7 @@ class TooltipButton: UIButton {
         
         
         tooltipButton.anchor(top: tooltipContainer.topAnchor, right: tooltipContainer.rightAnchor, topConstant: 16, leftConstant: 16, bottomConstant: 16, rightConstant: 16, widthConstant: 24, heightConstant: 24)
-        tooltipButton.setImage(UIImage(named: "Cross"), for: .normal)
+        tooltipButton.setImage(UIImage.app( "Cross"), for: .normal)
         tooltipButton.setTitle(nil, for: .normal)
 
         tooltipButton.addTarget(self, action: #selector(tooltipButtonPressed), for: .touchUpInside)

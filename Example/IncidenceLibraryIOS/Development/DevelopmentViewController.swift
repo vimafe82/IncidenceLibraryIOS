@@ -13,12 +13,14 @@ class DevelopmentViewController: UIViewController, StoryboardInstantiable {
     static var storyboardFileName = "DevelopmentScene"
     
     static func create() -> DevelopmentViewController {
+        print("DevelopmentViewController create")
         let view = DevelopmentViewController.instantiateViewController()
         //view.baseViewModel = DevelopmentViewModel()
         return view
     }
     
     override func viewDidLoad() {
+        print("DevelopmentViewController viewDidLoad")
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -61,11 +63,17 @@ class DevelopmentViewController: UIViewController, StoryboardInstantiable {
     }
     
     @IBAction func devicesPressed(_ sender: Any) {
+        /*
         let viewModel = DeviceListViewModel()
         let viewController = DeviceListViewController.create(with: viewModel)
        
         //navigationController?.setViewControllers([viewController], animated: true)
         //self.present(viewController, animated: true, completion: nil)
+        navigationController?.pushViewController(viewController, animated: true)
+        */
+        
+        
+        let viewController = IncidenceLibraryManager.shared.getDeviceListViewController()
         navigationController?.pushViewController(viewController, animated: true)
     }
     

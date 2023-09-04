@@ -103,9 +103,9 @@ class RegistrationBeaconViewModel: IABaseViewModel {
         get {
             switch status {
             case .bluetoothFail:
-                return UIImage(named: "bluetooth")
+                return UIImage.app( "bluetooth")
             case .missingBeacon:
-                return UIImage(named: "info")
+                return UIImage.app( "info")
             default:
                 return nil
             }

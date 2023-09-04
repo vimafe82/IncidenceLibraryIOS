@@ -99,10 +99,10 @@ class ReportBreakdownTypeViewController: ReportBaseViewController, StoryboardIns
         voiceDialogs.append(contentsOf: array)
     }
     private func setUpNavigation() {
-        let phoneButton = UIBarButtonItem(image: UIImage(named: "Phone"), style: .plain, target: self, action: #selector(phonePressed))
+        let phoneButton = UIBarButtonItem(image: UIImage.app( "Phone"), style: .plain, target: self, action: #selector(phonePressed))
         phoneButton.imageInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
         
-        speechButton = UIBarButtonItem(image: UIImage(named: "ic_nav_micro_off")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(speechPressed))
+        speechButton = UIBarButtonItem(image: UIImage.app( "ic_nav_micro_off")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(speechPressed))
         speechButton!.imageInsets = UIEdgeInsets(top: 0, left: -20, bottom: 0, right: 4)
         
         navigationItem.rightBarButtonItems = [speechButton!, phoneButton]
@@ -150,7 +150,7 @@ class ReportBreakdownTypeViewController: ReportBaseViewController, StoryboardIns
     }
     
     func updateSpeechButton() {
-        let image = UIImage(named: SpeechRecognizer.isEnabled ? "ic_nav_micro_on" : "ic_nav_micro_off")?.withRenderingMode(.alwaysOriginal)
+        let image = UIImage.app( SpeechRecognizer.isEnabled ? "ic_nav_micro_on" : "ic_nav_micro_off")?.withRenderingMode(.alwaysOriginal)
         speechButton?.image = image
     }
     
