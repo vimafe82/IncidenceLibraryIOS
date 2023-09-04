@@ -28,7 +28,7 @@ class LanguageCell: UITableViewCell {
         contentView.addSubview(menuView)
         menuView.anchor(top: contentView.topAnchor, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, right: contentView.rightAnchor, topConstant: 0, leftConstant: 24, bottomConstant: 0, rightConstant: 24)
         
-        let image = UIImage(named: "flag_spanish")
+        let image = UIImage.app( "flag_spanish")
         menuView.iconImageView.contentMode = .scaleAspectFit
         menuView.configure(text: "", color: .white, iconImage: image, rightIcon: .none)
     }
@@ -36,7 +36,7 @@ class LanguageCell: UITableViewCell {
     public func configure(with model: String, imageModel: String, showLine:Bool) {
         
         
-        let image = UIImage(named: imageModel)
+        let image = UIImage.app( imageModel)
         menuView.configure(text: model, color: .white, iconImage: image, rightIcon: .none)
         menuView.separator.isHidden = !showLine
     }

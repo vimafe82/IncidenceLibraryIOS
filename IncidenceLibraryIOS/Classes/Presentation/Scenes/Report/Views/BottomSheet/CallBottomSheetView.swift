@@ -81,14 +81,14 @@ final class CallBottomSheetView: UIView {
         firstButton.setTitleColor(UIColor.app(.incidence500), for: .normal)
         firstButton.titleLabel?.font = UIFont.app(.primaryRegular, size: 14)
         firstButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
-        firstButton.setImage(UIImage(named: "Phone-1")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        firstButton.setImage(UIImage.app( "Phone-1")?.withRenderingMode(.alwaysTemplate), for: .normal)
         firstButton.tintColor = UIColor.app(.incidence500)
         
         secondButton.anchor(heightConstant: 64)
         secondButton.buttonCornerRadius = 32
         secondButton.buttonText = secondButtonText
         secondButton.dragPointColor = UIColor.app(.white)!
-        secondButton.imageName = UIImage(named: "Direction=Right")!
+        secondButton.imageName = UIImage.app( "Direction=Right")!
         secondButton.delegate = self
         
         self.identifier = identifier

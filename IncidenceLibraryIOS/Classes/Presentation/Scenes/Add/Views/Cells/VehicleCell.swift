@@ -31,7 +31,7 @@ class VehicleCell: UITableViewCell {
     
     public func configure(with model: Vehicle?) {
         if let model = model {
-            let image = model.beacon != nil ? UIImage(named: "Type=Yes") : UIImage(named: "Type=No")
+            let image = model.beacon != nil ? UIImage.app( "Type=Yes") : UIImage.app( "Type=No")
             menuView.configure(text: model.getName(), iconImage: image, rightIcon: .arrow)
         } else {
             menuView.configure(text: "Añadir nuevo vehículo", color: .blue, rightIcon: .add)

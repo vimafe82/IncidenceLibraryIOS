@@ -64,7 +64,7 @@ class HomeMessageCell: UITableViewCell {
         
         containerView.addSubview(iconImageView)
         iconImageView.anchor(top: containerView.topAnchor, right: containerView.rightAnchor, topConstant: 24, rightConstant: 16, widthConstant: 24, heightConstant: 24)
-        iconImageView.image = UIImage(named: "Direction=Right-1")
+        iconImageView.image = UIImage.app( "Direction=Right-1")
         
         containerView.addSubview(titleLabel)
         titleLabel.anchor(top: containerView.topAnchor, left: containerView.leftAnchor, right: iconImageView.leftAnchor, topConstant: 16, leftConstant: 16, rightConstant: 16)
@@ -89,7 +89,7 @@ class HomeMessageCell: UITableViewCell {
         deleteButton.anchorCenterXToSuperview()
         deleteButton.anchorCenterYToSuperview()
         deleteButton.setTitle("Eliminar", for: .normal)
-        deleteButton.setImage(UIImage(named: "Delete")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        deleteButton.setImage(UIImage.app( "Delete")?.withRenderingMode(.alwaysTemplate), for: .normal)
         deleteButton.tintColor = UIColor.app(.white)
         deleteButton.titleLabel?.font = UIFont.app(.primaryRegular, size: 14)
         deleteButton.isMultipleTouchEnabled = true

@@ -89,7 +89,7 @@ public final class ImeiPopUpModalViewController: UIViewController, TextFieldView
         
         let crossImageView = UIImageView(frame: CGRect(x: width - widthMargin - widthCross, y: paddingLabel, width: widthCross, height: widthCross))
         //crossImageView.backgroundColor = UIColor.app(.black)
-        crossImageView.image = UIImage(named: "Close")
+        crossImageView.image = UIImage.app( "Close")
         crossImageView.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapCancel))
         crossImageView.addGestureRecognizer(tap)

@@ -67,7 +67,7 @@ class VehiclesInfoViewController: IABaseViewController, StoryboardInstantiable {
         
         if (Core.shared.isUserPrimaryForVehicle(viewModel.vehicle))
         {
-            let editButton = UIBarButtonItem(image: UIImage(named: "icon_edit")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(editPressed))
+            let editButton = UIBarButtonItem(image: UIImage.app( "icon_edit")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(editPressed))
             editButton.imageInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 4)
             navigationItem.rightBarButtonItem = editButton
         }

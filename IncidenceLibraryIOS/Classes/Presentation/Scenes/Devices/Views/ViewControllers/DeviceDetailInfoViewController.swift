@@ -73,7 +73,7 @@ class DeviceDetailInfoViewController: IABaseViewController, StoryboardInstantiab
         
         let infoImageView = UIImageView(frame: CGRect(x: widthMargin, y: widthMargin, width: widthCross, height: widthCross))
         //infoImageView.backgroundColor = UIColor.app(.black)
-        infoImageView.image = UIImage(named: "conection")?.withRenderingMode(.alwaysTemplate)
+        infoImageView.image = UIImage.app( "conection")?.withRenderingMode(.alwaysTemplate)
         infoImageView.tintColor = UIColor.app(.incidencePrimary)
         infoImageView.isUserInteractionEnabled = true
         //let tap = UITapGestureRecognizer(target: self, action: #selector(closeTooltip))
@@ -92,7 +92,7 @@ class DeviceDetailInfoViewController: IABaseViewController, StoryboardInstantiab
         
         let crossImageView = UIImageView(frame: CGRect(x: width - widthMargin - widthCross, y: widthMargin, width: widthCross, height: widthCross))
         //crossImageView.backgroundColor = UIColor.app(.black)
-        crossImageView.image = UIImage(named: "Close")
+        crossImageView.image = UIImage.app( "Close")
         crossImageView.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(closeAlertStopDeviceView))
         crossImageView.addGestureRecognizer(tap)
@@ -152,7 +152,7 @@ class DeviceDetailInfoViewController: IABaseViewController, StoryboardInstantiab
         
         let infoImageView = UIImageView(frame: CGRect(x: widthMargin, y: widthMargin, width: widthCross, height: widthCross))
         //infoImageView.backgroundColor = UIColor.app(.black)
-        infoImageView.image = UIImage(named: "conection")?.withRenderingMode(.alwaysTemplate)
+        infoImageView.image = UIImage.app( "conection")?.withRenderingMode(.alwaysTemplate)
         infoImageView.tintColor = UIColor.app(.incidencePrimary)
         infoImageView.isUserInteractionEnabled = true
         //let tap = UITapGestureRecognizer(target: self, action: #selector(closeTooltip))
@@ -171,7 +171,7 @@ class DeviceDetailInfoViewController: IABaseViewController, StoryboardInstantiab
         
         let crossImageView = UIImageView(frame: CGRect(x: width - widthMargin - widthCross, y: widthMargin, width: widthCross, height: widthCross))
         //crossImageView.backgroundColor = UIColor.app(.black)
-        crossImageView.image = UIImage(named: "Close")
+        crossImageView.image = UIImage.app( "Close")
         crossImageView.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(closeAlertNewIncidenceView))
         crossImageView.addGestureRecognizer(tap)
@@ -233,8 +233,8 @@ class DeviceDetailInfoViewController: IABaseViewController, StoryboardInstantiab
         timeLabel.text = "01:30"
         timeLabel.setLineSpacing(lineSpacing: 8, lineHeightMultiple: 0, aligment: .center)
         
-        //let image = UIImage(named: "device_start")?.withRenderingMode(.alwaysTemplate)
-        let image = UIImage(named: "device_start")
+        //let image = UIImage.app( "device_start")?.withRenderingMode(.alwaysTemplate)
+        let image = UIImage.app( "device_start")
         deviceImage.image = image
         deviceImage.contentMode = .scaleAspectFit
         //deviceImage.translatesAutoresizingMaskIntoConstraints = false

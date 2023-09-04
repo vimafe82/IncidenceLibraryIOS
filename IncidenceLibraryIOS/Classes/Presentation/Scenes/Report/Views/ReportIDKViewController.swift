@@ -50,7 +50,7 @@ class ReportIDKViewController: IABaseViewController, StoryboardInstantiable {
         super.setUpUI()
         insuraceImageView.layer.cornerRadius = 36
         insuraceImageView.layer.masksToBounds = true
-        insuraceImageView.image = UIImage(named: "Name=AXA")
+        insuraceImageView.image = UIImage.app( "Name=AXA")
         
         descriptionLabel.text = viewModel.descriptionText
         descriptionLabel.setLineSpacing(lineSpacing: 8, lineHeightMultiple: 0, aligment: .left)

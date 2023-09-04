@@ -41,28 +41,28 @@ class MenuViewController: UIViewController, StoryboardInstantiable {
         navigationController?.setNavigationBarHidden(true, animated: false)
         
         accountButton.setTitle("account".localized(), for: .normal)
-        accountButton.setImage(UIImage(named: "User")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        accountButton.setImage(UIImage.app( "User")?.withRenderingMode(.alwaysTemplate), for: .normal)
         accountButton.tintColor = UIColor.app(.white)
         
         vehicleButton.setTitle("vehicles".localized(), for: .normal)
-        vehicleButton.setImage(UIImage(named: "Property")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        vehicleButton.setImage(UIImage.app( "Property")?.withRenderingMode(.alwaysTemplate), for: .normal)
         vehicleButton.tintColor = UIColor.app(.white)
         
         incidenceButton.setTitle("incidences".localized(), for: .normal)
-        incidenceButton.setImage(UIImage(named: "Warning")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        incidenceButton.setImage(UIImage.app( "Warning")?.withRenderingMode(.alwaysTemplate), for: .normal)
         incidenceButton.tintColor = UIColor.app(.white)
         
         deviceButton.setTitle("devices".localized(), for: .normal)
-        deviceButton.setImage(UIImage(named: "Dispositivo")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        deviceButton.setImage(UIImage.app( "Dispositivo")?.withRenderingMode(.alwaysTemplate), for: .normal)
         deviceButton.tintColor = UIColor.app(.white)
         
         buyButton.setTitle("buy_beacon".localized(), for: .normal)
-        buyButton.setImage(UIImage(named: "icon_shop")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        buyButton.setImage(UIImage.app( "icon_shop")?.withRenderingMode(.alwaysTemplate), for: .normal)
         buyButton.tintColor = UIColor.app(.white)
         
         addButton.setTitle("add".localized(), for: .normal)
         addButton.setTitleColor(UIColor.app(.incidencePrimary), for: .normal)
-        addButton.setImage(UIImage(named: "More"), for: .normal)
+        addButton.setImage(UIImage.app( "More"), for: .normal)
         addButton.tintColor = UIColor.app(.incidencePrimary)
         addButton.layer.cornerRadius = 25
         addButton.layer.masksToBounds = true
@@ -112,12 +112,12 @@ class MenuViewController: UIViewController, StoryboardInstantiable {
         let lang = Core.shared.getLanguage()
         if (lang == "en")
         {
-            languageImageView.image = UIImage(named: "flag_english")
+            languageImageView.image = UIImage.app( "flag_english")
             languageButton.setTitle("lang_english".localized(), for: .normal)
         }
         else
         {
-            languageImageView.image = UIImage(named: "flag_spanish")
+            languageImageView.image = UIImage.app( "flag_spanish")
             languageButton.setTitle("lang_spanish".localized(), for: .normal)
         }
     }

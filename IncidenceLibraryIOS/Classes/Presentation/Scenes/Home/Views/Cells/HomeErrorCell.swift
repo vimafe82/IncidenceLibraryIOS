@@ -63,7 +63,7 @@ class HomeErrorCell: UITableViewCell {
         
         containerView.addSubview(iconImageView)
         iconImageView.anchor(top: containerView.topAnchor, left: containerView.leftAnchor, topConstant: 24, leftConstant: 16, widthConstant: 24, heightConstant: 24)
-        iconImageView.image = UIImage(named: "Warning")?.withRenderingMode(.alwaysTemplate)
+        iconImageView.image = UIImage.app( "Warning")?.withRenderingMode(.alwaysTemplate)
         iconImageView.tintColor = UIColor.app(.white)
         
         containerView.addSubview(titleLabel)
@@ -88,7 +88,7 @@ class HomeErrorCell: UITableViewCell {
         deleteButton.anchorCenterXToSuperview()
         deleteButton.anchorCenterYToSuperview()
         deleteButton.setTitle("Eliminar", for: .normal)
-        deleteButton.setImage(UIImage(named: "Delete")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        deleteButton.setImage(UIImage.app( "Delete")?.withRenderingMode(.alwaysTemplate), for: .normal)
         deleteButton.tintColor = UIColor.app(.white)
         deleteButton.titleLabel?.font = UIFont.app(.primaryRegular, size: 14)
         deleteButton.isMultipleTouchEnabled = true

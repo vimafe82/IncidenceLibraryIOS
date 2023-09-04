@@ -103,7 +103,7 @@ class FieldView: UIView {
     let arrowImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "icon_edit")?.withRenderingMode(.alwaysOriginal)
+        imageView.image = UIImage.app( "icon_edit")?.withRenderingMode(.alwaysOriginal)
         return imageView
     }()
 }

@@ -71,13 +71,13 @@ class AccountHelpViewController: IABaseViewController, StoryboardInstantiable {
         
         
         /*
-        telephoneMenuView.configure(text: "contact_phone".localized(), iconImage: UIImage(named: "Phone"))
+        telephoneMenuView.configure(text: "contact_phone".localized(), iconImage: UIImage.app( "Phone"))
         telephoneMenuView.onTap { [weak self] in
             let actionSheetController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             let firstAction: UIAlertAction = UIAlertAction(title: "call_to".localized() + Constants.PHONE_CONTACT , style: .default) { action -> Void in
                 Core.shared.callNumber(phoneNumber: Constants.PHONE_CONTACT)
             }
-            let image = UIImage(named: "PhoneBlack")?.withRenderingMode(.alwaysOriginal)
+            let image = UIImage.app( "PhoneBlack")?.withRenderingMode(.alwaysOriginal)
             firstAction.setValue(image, forKey: "image")
 
             let cancelAction: UIAlertAction = UIAlertAction(title: "cancel".localized(), style: .destructive) { action -> Void in }
@@ -114,7 +114,7 @@ class AccountHelpViewController: IABaseViewController, StoryboardInstantiable {
         }
         
         
-        telephoneMenuView.configure(text: "privacy".localized(), color: MenuViewColors.white, iconImage: UIImage(named: "Document"), iconImageColored: true)
+        telephoneMenuView.configure(text: "privacy".localized(), color: MenuViewColors.white, iconImage: UIImage.app( "Document"), iconImageColored: true)
         telephoneMenuView.onTap { [weak self] in
             
             
@@ -127,7 +127,7 @@ class AccountHelpViewController: IABaseViewController, StoryboardInstantiable {
             
         }
         
-        emailMenuView.configure(text: "contact_email".localized(), color: MenuViewColors.white, iconImage: UIImage(named: "Email"), iconImageColored: true)
+        emailMenuView.configure(text: "contact_email".localized(), color: MenuViewColors.white, iconImage: UIImage.app( "Email"), iconImageColored: true)
         emailMenuView.onTap {
             let email = Constants.EMAIL_CONTACT
             if let url = URL(string: "mailto:\(email)") {
@@ -139,7 +139,7 @@ class AccountHelpViewController: IABaseViewController, StoryboardInstantiable {
             }
         }
         
-        faqMenuView.configure(text: "contact_faqs".localized(), color: MenuViewColors.white, iconImage: UIImage(named: "Question"), iconImageColored: true)
+        faqMenuView.configure(text: "contact_faqs".localized(), color: MenuViewColors.white, iconImage: UIImage.app( "Question"), iconImageColored: true)
         faqMenuView.onTap { [weak self] in
             guard let strongSelf = self else { return }
             guard let url = URL(string: Constants.URL_FAQS) else { return }
@@ -149,7 +149,7 @@ class AccountHelpViewController: IABaseViewController, StoryboardInstantiable {
             strongSelf.navigationController?.pushViewController(vc, animated: true)
         }
         
-        tutorialMenuView.configure(text: "contact_tutorial".localized(), color: MenuViewColors.white, iconImage: UIImage(named: "ic_youtube"), iconImageColored: true)
+        tutorialMenuView.configure(text: "contact_tutorial".localized(), color: MenuViewColors.white, iconImage: UIImage.app( "ic_youtube"), iconImageColored: true)
         tutorialMenuView.onTap { [weak self] in
             guard let strongSelf = self else { return }
             
@@ -161,7 +161,7 @@ class AccountHelpViewController: IABaseViewController, StoryboardInstantiable {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(userDidTap(tapGestureRecognizer:)))
         imgClose.addGestureRecognizer(tapGesture)
         
-        let image = UIImage(named: "Close")?.withRenderingMode(.alwaysTemplate)
+        let image = UIImage.app( "Close")?.withRenderingMode(.alwaysTemplate)
         imgCloseIcon.image = image
         imgCloseIcon.tintColor = UIColor.app(.white)
         

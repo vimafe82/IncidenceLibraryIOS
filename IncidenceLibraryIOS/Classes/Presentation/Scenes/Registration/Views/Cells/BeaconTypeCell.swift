@@ -31,7 +31,7 @@ class BeaconTypeCell: UITableViewCell {
         contentView.addSubview(menuView)
         menuView.anchor(top: contentView.topAnchor, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, right: contentView.rightAnchor, topConstant: 0, leftConstant: 24, bottomConstant: 0, rightConstant: 24)
         
-        let image = UIImage(named: "beacon")
+        let image = UIImage.app( "beacon")
         menuView.configure(text: "", iconImage: image, rightIcon: .none)
     }
     
@@ -39,7 +39,7 @@ class BeaconTypeCell: UITableViewCell {
         
         var img:UIImage? = nil
         if let imgStr = image {
-            img = UIImage(named: imgStr)
+            img = UIImage.app( imgStr)
         }
         menuView.configure(text: title, iconImage: img, rightIcon: rightIcon, rightIconDelegate: delegate != nil ? self : nil, tooltipText: tooltipText, identifier: identifier)
         self.delegate = delegate;

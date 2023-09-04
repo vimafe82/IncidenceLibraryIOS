@@ -23,9 +23,10 @@ public class DeviceListViewController: IABaseViewController, StoryboardInstantia
     // MARK: - Lifecycle
     public static func create(with viewModel: DeviceListViewModel) -> DeviceListViewController {
         
-        IncidenceLibraryManager.shared.validateScreen(screen: storyboardFileName)
+        //IncidenceLibraryManager.shared.validateScreen(screen: storyboardFileName)
+        let bundle = Bundle(for: Self.self)
         
-        let view = DeviceListViewController.instantiateViewController(Bundle(for: Self.self))
+        let view = DeviceListViewController.instantiateViewController(bundle)
         view.baseViewModel = viewModel
         
         return view

@@ -32,8 +32,8 @@ extension String {
                 return str
             }
         }
-        
-        return NSLocalizedString(self, comment: comment ?? "")
+        let bundle = Bundle(for: IncidenceLibraryManager.self)
+        return NSLocalizedString(self, bundle: bundle, comment: comment ?? "")
     }
 
     func localizedVoice(withComment comment: String? = nil) -> String {

@@ -13,19 +13,19 @@ class ReportIDKViewModel: IABaseViewModel {
         set { }
     }
 
-    let insuranceImage: UIImage? = UIImage(named: "Name=AXA")
+    let insuranceImage: UIImage? = UIImage.app( "Name=AXA")
     let descriptionText: String = "your_insurance_contact_you".localized()
     
-    let balizaImage = UIImage(named: "Type=Yes")?.withRenderingMode(.alwaysTemplate)
+    let balizaImage = UIImage.app( "Type=Yes")?.withRenderingMode(.alwaysTemplate)
     let balizaText = "incidence_tip_beacon".localized()
     
-    let lightImage = UIImage(named: "Light")?.withRenderingMode(.alwaysTemplate)
+    let lightImage = UIImage.app( "Light")?.withRenderingMode(.alwaysTemplate)
     let lightText = "incidence_tip_lights".localized()
     
-    let chalecoImage = UIImage(named: "Chaleco")?.withRenderingMode(.alwaysTemplate)
+    let chalecoImage = UIImage.app( "Chaleco")?.withRenderingMode(.alwaysTemplate)
     let chalecoText = "incidence_tip_vest".localized()
     
-    let outImage = UIImage(named: "Property")?.withRenderingMode(.alwaysTemplate)
+    let outImage = UIImage.app( "Property")?.withRenderingMode(.alwaysTemplate)
     let outText = "incidence_tip_exit_car".localized()
     
     let acceptButtonText: String = "accept".localized()

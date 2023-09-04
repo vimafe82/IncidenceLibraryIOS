@@ -16,13 +16,13 @@ class ReportExpiredInsuranceViewModel: IABaseViewModel {
     let titleText: String = "policy_expired".localized()
     let descriptionText: String = "policy_expired_desc".localized()
 
-    let lightImage = UIImage(named: "Light")?.withRenderingMode(.alwaysTemplate)
+    let lightImage = UIImage.app( "Light")?.withRenderingMode(.alwaysTemplate)
     let lightText = "incidence_tip_lights".localized()
     
-    let chalecoImage = UIImage(named: "Chaleco")?.withRenderingMode(.alwaysTemplate)
+    let chalecoImage = UIImage.app( "Chaleco")?.withRenderingMode(.alwaysTemplate)
     let chalecoText = "incidence_tip_vest".localized()
     
-    let outImage = UIImage(named: "Property")?.withRenderingMode(.alwaysTemplate)
+    let outImage = UIImage.app( "Property")?.withRenderingMode(.alwaysTemplate)
     let outText = "incidence_tip_exit_car".localized()
     
     let acceptButtonText: String = "policy_update".localized()

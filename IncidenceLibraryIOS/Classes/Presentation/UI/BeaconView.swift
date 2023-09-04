@@ -32,7 +32,7 @@ class BeaconView: UIView {
         imageView.anchor(widthConstant: 50, heightConstant: 50)
         imageView.anchorCenterXToSuperview()
         imageView.anchorCenterYToSuperview()
-        let image = UIImage(named: "Type=Yes")?.withRenderingMode(.alwaysTemplate)
+        let image = UIImage.app( "Type=Yes")?.withRenderingMode(.alwaysTemplate)
         imageView.image = image
         imageView.tintColor = UIColor.app(.help500)
         

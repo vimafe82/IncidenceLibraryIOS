@@ -1,11 +1,12 @@
 
 @objc public final class IncidenceLibraryManager: NSObject {
     
-    public static let shared = IncidenceLibraryManager()
+    //public static let shared = IncidenceLibraryManager()
+    public static var shared: IncidenceLibraryManager!
     
     // MARK: -
 
-    private static var config: IncidenceLibraryConfig?
+    private var config: IncidenceLibraryConfig?
     
     private let apiKey: String
     private let env: Environment
@@ -14,20 +15,59 @@
     private var screens: [String] = [String]()
 
     public class func setup(_ config: IncidenceLibraryConfig) {
-        IncidenceLibraryManager.config = config
+        //IncidenceLibraryManager.config = config
+        //shared.config = config
+        //shared.validateApiKey();
         
+        IncidenceLibraryManager.shared = IncidenceLibraryManager(config: config)
+        shared.initFonts()
         shared.validateApiKey();
+    }
+    
+    func initFonts() {
+        for family: String in UIFont.familyNames {
+            print("%@", family)
+            for name: String in UIFont.fontNames(forFamilyName: family) {
+                print("  %@", name)
+            }
+        }
+        
+        
+        do {
+            try IncidenceLibraryManager.shared.fontsURLs().forEach({ try IncidenceLibraryManager.shared.register(from: $0) })
+        } catch {
+            print(error)
+        }
+    }
+    
+    func register(from url: URL) throws {
+            guard let fontDataProvider = CGDataProvider(url: url as CFURL) else {
+                //throw SVError.internal("Could not create font data provider for \(url).")
+                fatalError("Could not create font data provider for \(url).")
+            }
+            let font = CGFont(fontDataProvider)!
+            var error: Unmanaged<CFError>?
+            guard CTFontManagerRegisterGraphicsFont(font, &error) else {
+                throw error!.takeUnretainedValue()
+            }
+        }
+    
+    func fontsURLs() -> [URL] {
+        let bundle = Bundle(for: IncidenceLibraryManager.self)
+        let fileNames = ["Silka-Bold", "Silka-Regular"]
+        return fileNames.map({ bundle.url(forResource: $0, withExtension: "otf")! })
     }
     
     // Initialization
 
-    private override init() {
-        guard let config = IncidenceLibraryManager.config else {
-            fatalError("Error - you must call setup before accessing MySingleton.shared")
-        }
+    private init(config: IncidenceLibraryConfig) {
+        //guard config != nil else {
+        //    fatalError("Error - you must call setup before accessing MySingleton.shared")
+        //}
         
-        apiKey = config.apiKey.apiKeyString
-        env = config.env
+        self.config = config
+        self.apiKey = config.apiKey.apiKeyString
+        self.env = config.env
     }
     
     public func printStatusConfig() {
@@ -47,6 +87,7 @@
                 
                 self.screens.append("SCREEN1")
                 self.screens.append("SCREEN2")
+                self.screens.append(DeviceListViewController.storyboardFileName)
             }
             else
             {

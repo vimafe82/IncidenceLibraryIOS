@@ -28,7 +28,7 @@ class AccountHelpCell: UITableViewCell {
         contentView.addSubview(menuView)
         menuView.anchor(top: contentView.topAnchor, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, right: contentView.rightAnchor, topConstant: 0, leftConstant: 24, bottomConstant: 0, rightConstant: 24)
         
-        let image = UIImage(named: "flag_spanish")
+        let image = UIImage.app( "flag_spanish")
         menuView.iconImageView.contentMode = .scaleAspectFit
         menuView.configure(text: "", color: .white, iconImage: image, iconImageColored: true, rightIcon: .none)
     }
@@ -36,7 +36,7 @@ class AccountHelpCell: UITableViewCell {
     public func configure(with model: String, leftIcon: String?, leftImageUrl: String?, rightIcon:MenuViewRightIcon, showLine:Bool) {
         
         
-        let image = (leftIcon != nil) ? UIImage(named: leftIcon!) : nil
+        let image = (leftIcon != nil) ? UIImage.app( leftIcon!) : nil
         
         
         var iconImageWidth = 24.0

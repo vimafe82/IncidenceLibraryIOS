@@ -89,7 +89,7 @@ class TextFieldView: UIView {
     private lazy var successIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "Check")?.withRenderingMode(.alwaysTemplate)
+        imageView.image = UIImage.app( "Check")?.withRenderingMode(.alwaysTemplate)
         imageView.tintColor = UIColor.app(.success)
         imageView.isHidden = true
         
@@ -99,7 +99,7 @@ class TextFieldView: UIView {
     private lazy var editIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "Edit")
+        imageView.image = UIImage.app( "Edit")
         imageView.isHidden = true
         
         return imageView
@@ -108,7 +108,7 @@ class TextFieldView: UIView {
     private lazy var deleteIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "Delete")?.withRenderingMode(.alwaysTemplate)
+        imageView.image = UIImage.app( "Delete")?.withRenderingMode(.alwaysTemplate)
         imageView.tintColor = UIColor.app(.errorPrimary)
         
         return imageView
@@ -254,7 +254,7 @@ class TextFieldView: UIView {
         textField.font = UIFont.app(.primaryRegular, size: 16)
         let clearButton = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 40, height: 24)))
         clearButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -14, bottom: 0, right: 14)
-        clearButton.setImage(UIImage(named: "Delete-1")!, for: .normal)
+        clearButton.setImage(UIImage.app( "Delete-1")!, for: .normal)
         textField.rightView = clearButton
         clearButton.addTarget(self, action: #selector(clearClicked), for: .touchUpInside)
         textField.clearButtonMode = .never

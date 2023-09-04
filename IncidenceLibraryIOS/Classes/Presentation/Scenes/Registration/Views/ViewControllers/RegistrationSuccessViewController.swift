@@ -51,13 +51,13 @@ class RegistrationSuccessViewController: IABaseViewController, StoryboardInstant
     }
     
     private func setUpRoundViews() {
-        checkOneImageView.image = UIImage(named: "CheckCircleLine")?.withRenderingMode(.alwaysTemplate)
+        checkOneImageView.image = UIImage.app( "CheckCircleLine")?.withRenderingMode(.alwaysTemplate)
         checkOneImageView.tintColor = UIColor.app(.white)
         
-        checkTwoImageView.image = UIImage(named: "CheckCircleLine")?.withRenderingMode(.alwaysTemplate)
+        checkTwoImageView.image = UIImage.app( "CheckCircleLine")?.withRenderingMode(.alwaysTemplate)
         checkTwoImageView.tintColor = UIColor.app(.white)
         
-        checkThirdImageView.image = UIImage(named: "CheckCircleLine")?.withRenderingMode(.alwaysTemplate)
+        checkThirdImageView.image = UIImage.app( "CheckCircleLine")?.withRenderingMode(.alwaysTemplate)
         checkThirdImageView.tintColor = UIColor.app(.white)
     }
 

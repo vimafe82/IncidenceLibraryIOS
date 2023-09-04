@@ -38,7 +38,7 @@ class VehiclesMenuViewController: IABaseViewController, StoryboardInstantiable {
     
     override func setUpUI() {
         super.setUpUI()
-        vehicleInfoMenuView.configure(text: "vehicle_data".localized(), iconImage: UIImage(named: "Property"))
+        vehicleInfoMenuView.configure(text: "vehicle_data".localized(), iconImage: UIImage.app( "Property"))
         vehicleInfoMenuView.onTap { [weak self] in
             guard let strongSelf = self else { return }
             
@@ -47,7 +47,7 @@ class VehiclesMenuViewController: IABaseViewController, StoryboardInstantiable {
             strongSelf.navigationController?.pushViewController(viewController, animated: true)
         }
         
-        insuranceMenuView.configure(text: "insurance_data".localized(), iconImage: UIImage(named: "Document"), showIndicator: self.viewModel.vehicle.hasPolicyIncompleted())
+        insuranceMenuView.configure(text: "insurance_data".localized(), iconImage: UIImage.app( "Document"), showIndicator: self.viewModel.vehicle.hasPolicyIncompleted())
         insuranceMenuView.onTap { [weak self] in
             guard let strongSelf = self else { return }
             
@@ -56,7 +56,7 @@ class VehiclesMenuViewController: IABaseViewController, StoryboardInstantiable {
             strongSelf.navigationController?.pushViewController(viewController, animated: true)
         }
         
-        beaconMenuView.configure(text: "beacon".localized(), iconImage: UIImage(named: "Dispositivo"))
+        beaconMenuView.configure(text: "beacon".localized(), iconImage: UIImage.app( "Dispositivo"))
         beaconMenuView.onTap { [weak self] in
             guard let strongSelf = self else { return }
             
@@ -66,7 +66,7 @@ class VehiclesMenuViewController: IABaseViewController, StoryboardInstantiable {
             
         }
         
-        incidencesMenuView.configure(text: "incidences".localized(), iconImage: UIImage(named: "Warning"))
+        incidencesMenuView.configure(text: "incidences".localized(), iconImage: UIImage.app( "Warning"))
         incidencesMenuView.onTap { [weak self] in
             guard let strongSelf = self else { return }
             let viewModel = IncidencesListViewModel(vehicle: strongSelf.viewModel.vehicle)
@@ -74,7 +74,7 @@ class VehiclesMenuViewController: IABaseViewController, StoryboardInstantiable {
             strongSelf.navigationController?.pushViewController(viewController, animated: true)
         }
         
-        driversMenuView.configure(text: "Conductores", iconImage: UIImage(named: "User"))
+        driversMenuView.configure(text: "Conductores", iconImage: UIImage.app( "User"))
         driversMenuView.onTap {[weak self] in
             guard let strongSelf = self else { return }
             let viewModel = VehiclesDriversViewModel()

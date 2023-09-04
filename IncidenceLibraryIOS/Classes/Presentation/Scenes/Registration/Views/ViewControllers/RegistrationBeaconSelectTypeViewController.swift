@@ -390,7 +390,7 @@ class RegistrationBeaconSelectTypeViewController: IABaseViewController, Storyboa
     
     lazy var cameraTitleLabel : UILabel = {
         let attachment = NSTextAttachment()
-        let image = UIImage(named: "Direction=Left")?.withRenderingMode(.alwaysTemplate)
+        let image = UIImage.app( "Direction=Left")?.withRenderingMode(.alwaysTemplate)
         attachment.image = image;
         attachment.bounds = CGRect(x: 0, y: -7, width: attachment.image!.size.width, height: attachment.image!.size.height)
 

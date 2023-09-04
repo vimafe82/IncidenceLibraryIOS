@@ -38,8 +38,8 @@ class DeviceInfoViewController: IABaseViewController, StoryboardInstantiable {
         titleLabel.text = "device_desc_info1".localized()
         titleLabel.setLineSpacing(lineSpacing: 8, lineHeightMultiple: 0, aligment: .center)
         
-        //let image = UIImage(named: "device_start")?.withRenderingMode(.alwaysTemplate)
-        let image = UIImage(named: "device_info_1")
+        //let image = UIImage.app( "device_start")?.withRenderingMode(.alwaysTemplate)
+        let image = UIImage.app( "device_info_1")
         deviceImage.image = image
         deviceImage.contentMode = .scaleAspectFit
         //deviceImage.translatesAutoresizingMaskIntoConstraints = false
@@ -63,13 +63,13 @@ class DeviceInfoViewController: IABaseViewController, StoryboardInstantiable {
             index=1;
             
             titleLabel.text = "device_desc_info2".localized()
-            let image = UIImage(named: "device_info_2")
+            let image = UIImage.app( "device_info_2")
             deviceImage.image = image
         } else if (index == 1) {
             index=2
             
             titleLabel.text = "device_desc_info3".localized()
-            let image = UIImage(named: "device_info_3")
+            let image = UIImage.app( "device_info_3")
             deviceImage.image = image
             
             backButton.setTitle("Finalizar", for: .normal)

@@ -11,7 +11,7 @@ extension UIBarButtonItem {
 
     static func menuButton(_ target: Any?, action: Selector, imageName: String) -> UIBarButtonItem {
         let button = UIButton(type: .system)
-        button.setImage(UIImage(named: imageName)?.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.setImage(UIImage.app( imageName)?.withRenderingMode(.alwaysOriginal), for: .normal)
         button.addTarget(target, action: action, for: .touchUpInside)
         button.imageView?.contentMode = .scaleAspectFit
         

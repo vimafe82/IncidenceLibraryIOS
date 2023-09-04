@@ -143,12 +143,12 @@ class OnboardingRootViewController: UIPageViewController, CALayerDelegate {
         if (vol == 0) {
             player.volume = 1;
             
-            let image = UIImage(named: "icon_volume_on")
+            let image = UIImage.app( "icon_volume_on")
             muteButton.setImage(image, for: .normal)
         } else {
             player.volume = 0;
             
-            let image = UIImage(named: "icon_volume_off")
+            let image = UIImage.app( "icon_volume_off")
             muteButton.setImage(image, for: .normal)
         }
         
@@ -237,7 +237,7 @@ class OnboardingRootViewController: UIPageViewController, CALayerDelegate {
     lazy var closeButton: UIButton = {
         let button = UIButton()
         
-        let image = UIImage(named: "Close")?.withRenderingMode(.alwaysTemplate)
+        let image = UIImage.app( "Close")?.withRenderingMode(.alwaysTemplate)
         button.setImage(image, for: .normal)
         button.imageView?.tintColor = UIColor.app(.white)
         button.imageView?.contentMode = .scaleAspectFit
@@ -249,7 +249,7 @@ class OnboardingRootViewController: UIPageViewController, CALayerDelegate {
     lazy var logoBackgroundImage: UIImageView = {
         let imageView = UIImageView()
         
-        let image = UIImage(named: "logo")?.withRenderingMode(.alwaysTemplate)
+        let image = UIImage.app( "logo")?.withRenderingMode(.alwaysTemplate)
         imageView.image = image
         imageView.tintColor = UIColor.app(.white)
         imageView.contentMode = .scaleAspectFit
@@ -261,7 +261,7 @@ class OnboardingRootViewController: UIPageViewController, CALayerDelegate {
     lazy var muteButton: UIButton = {
         let button = UIButton()
         
-        let image = UIImage(named: "icon_volume_on")
+        let image = UIImage.app( "icon_volume_on")
         button.setImage(image, for: .normal)
         //button.imageView?.tintColor = UIColor.app(.white)
         button.imageView?.contentMode = .scaleAspectFit

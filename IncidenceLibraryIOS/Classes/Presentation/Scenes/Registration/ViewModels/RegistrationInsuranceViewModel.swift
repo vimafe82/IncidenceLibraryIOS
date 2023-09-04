@@ -37,19 +37,19 @@ class RegistrationInsuranceViewModel: IABaseViewModel {
     }()
     
     lazy var highlightInsurances: [Insurance] = {
-        /*return [Insurance(name: "Axa", image: UIImage(named: "Name=AXA")),
-                Insurance(name: "Mapfre", image: UIImage(named: "Name=Mapfre")),
-                Insurance(name: "Verti", image: UIImage(named: "Name=Verti")),
-                Insurance(name: "Mutua Madrileña", image: UIImage(named: "Name=MutuaMadrilena")),
+        /*return [Insurance(name: "Axa", image: UIImage.app( "Name=AXA")),
+                Insurance(name: "Mapfre", image: UIImage.app( "Name=Mapfre")),
+                Insurance(name: "Verti", image: UIImage.app( "Name=Verti")),
+                Insurance(name: "Mutua Madrileña", image: UIImage.app( "Name=MutuaMadrilena")),
         ]*/
         return [Insurance]()
     }()
     
     lazy var insurances: [Insurance] = {
         /*
-        return [Insurance(name: "Direct Seguros", image: UIImage(named: "Name=DirectSeguros")),
-                Insurance(name: "Liberty Seguros", image: UIImage(named: "Name=Liberty Seguros")),
-                Insurance(name: "Reale", image: UIImage(named: "Name=Reale")),
+        return [Insurance(name: "Direct Seguros", image: UIImage.app( "Name=DirectSeguros")),
+                Insurance(name: "Liberty Seguros", image: UIImage.app( "Name=Liberty Seguros")),
+                Insurance(name: "Reale", image: UIImage.app( "Name=Reale")),
         ]*/
         return [Insurance]()
     }()
