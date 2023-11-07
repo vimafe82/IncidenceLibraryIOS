@@ -27,7 +27,9 @@ class RegistrationColorViewController: IABaseViewController, StoryboardInstantia
 
     // MARK: - Lifecycle
     static func create(with viewModel: RegistrationColorViewModel) -> RegistrationColorViewController {
-        let view = RegistrationColorViewController .instantiateViewController()
+        let bundle = Bundle(for: Self.self)
+        
+        let view = RegistrationColorViewController .instantiateViewController(bundle)
         view.baseViewModel = viewModel
         view.selectedColor = viewModel.selectedColor
         

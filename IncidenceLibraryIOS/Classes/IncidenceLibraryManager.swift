@@ -8,7 +8,7 @@
 
     private var config: IncidenceLibraryConfig?
     
-    private let apiKey: String
+    let apiKey: String
     private let env: Environment
     
     private var validApiKey: Bool? = nil
@@ -20,6 +20,7 @@
         //shared.validateApiKey();
         
         IncidenceLibraryManager.shared = IncidenceLibraryManager(config: config)
+        Api.shared.setup(env: config.env);
         shared.initFonts()
         shared.validateApiKey();
     }
@@ -54,7 +55,7 @@
     
     func fontsURLs() -> [URL] {
         let bundle = Bundle(for: IncidenceLibraryManager.self)
-        let fileNames = ["Silka-Bold", "Silka-Regular"]
+        let fileNames = ["Silka-Regular", "Silka-Thin", "Silka-Bold", "Silka-Medium", "Silka-SemiBold"]
         return fileNames.map({ bundle.url(forResource: $0, withExtension: "otf")! })
     }
     
@@ -85,9 +86,10 @@
             {
                 self.validApiKey = true
                 
-                self.screens.append("SCREEN1")
-                self.screens.append("SCREEN2")
-                self.screens.append(DeviceListViewController.storyboardFileName)
+                self.screens = result.getList(key: "functionalities") ?? [String]()
+                self.screens.append(Constants.SCREEN_DEVICE_CREATE)
+                
+                Core.shared.registerDevice()
             }
             else
             {
@@ -120,6 +122,19 @@
             let viewModel = DeviceListViewModel()
             let viewController = DeviceListViewController.create(with: viewModel)
             return viewController
+        } else {
+            return processScreenError(error: res)
+        }
+    }
+    
+    public func getDeviceCreateViewController() -> IABaseViewController {
+        let res = validateScreen(screen: Constants.SCREEN_DEVICE_CREATE)
+        if (res == "SCREEN_OK") {
+            let vm = RegistrationBeaconViewModel(origin: .addBeacon)
+            vm.fromBeacon = true
+            let viewController = RegistrationBeaconSelectTypeViewController.create(with: vm)
+            return viewController
+            
         } else {
             return processScreenError(error: res)
         }

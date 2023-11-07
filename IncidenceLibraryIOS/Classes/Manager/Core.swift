@@ -360,6 +360,7 @@ extension Core {
             Api.shared.updateDevice(completion: { result in })
         }
         */
+        Api.shared.updateDevice(completion: { result in })
     }
     
     func getGeneralData()

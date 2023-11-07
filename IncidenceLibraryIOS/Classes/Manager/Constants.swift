@@ -70,4 +70,9 @@ struct Constants {
     static let VALIDATE_USER_PHONE_EXISTS = "user_phone_exists"
     
     static let WS_RESPONSE_ACTION_INVALID_SESSION = "invalid_session"
+    
+    static let SCREEN_DEVICE_LIST = "SCREEN_DEVICE_LIST"
+    static let SCREEN_DEVICE_CREATE = "SCREEN_DEVICE_CREATE"
+    static let FUNC_REPOR_INC = "FUNC_REPOR_INC"
+    static let SCREEN_ERROR = "ERROR"
 }

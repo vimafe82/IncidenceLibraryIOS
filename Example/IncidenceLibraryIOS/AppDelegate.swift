@@ -28,13 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
       //let rootVC = AppNavigator.shared.rootViewController
       
-      let config = IncidenceLibraryConfig(apiKey: .init("mapfre"))
+      let config = IncidenceLibraryConfig(apiKey: .init("bWFwZnJlX2NsaWVudDpkOTBlMTA3ZjdhNGU1NmQyYzlkMTJhMHM3ZTQ1ZDQ1MQ=="), env: .PRE)
       IncidenceLibraryManager.setup(config)
       IncidenceLibraryManager.shared.printStatusConfig()
       
       let firstViewController = DevelopmentViewController.create()
       let rootVC = UINavigationController(rootViewController: firstViewController)
-      rootVC.isNavigationBarHidden = true
+      rootVC.isNavigationBarHidden = false
       
       window?.rootViewController = rootVC
 

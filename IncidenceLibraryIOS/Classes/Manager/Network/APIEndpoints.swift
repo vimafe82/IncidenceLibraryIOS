@@ -9,13 +9,15 @@ import Foundation
 //import E510_Networking
 
 struct APIEndpoints {
-    #if PRO
-        static let API_BASE_URL = "https://api-pro.incidence.eu"
-    #elseif PRE
-        static let API_BASE_URL = "https://api-pre.incidence.eu"
-    #else
-        static let API_BASE_URL = "https://api-test.incidence.eu"
-    #endif
+    
+    static let API_BASE_URL_PRO = "https://api-pro.incidence.eu"
+    static let API_BASE_URL_PRE = "https://api-pre.incidence.eu"
+    static let API_BASE_URL_TEST = "https://api-test.incidence.eu"
+    
+    static var API_BASE_URL = API_BASE_URL_PRO
+    
+    
+    
     /*
     
     static func basicHeaders() -> [String: String] {

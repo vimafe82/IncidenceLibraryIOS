@@ -33,7 +33,9 @@ class RegistrationBeaconViewController: IABaseViewController, StoryboardInstanti
 
     // MARK: - Lifecycle
     static func create(with viewModel: RegistrationBeaconViewModel) -> RegistrationBeaconViewController {
-        let view = RegistrationBeaconViewController .instantiateViewController()
+        let bundle = Bundle(for: Self.self)
+        
+        let view = RegistrationBeaconViewController .instantiateViewController(bundle)
         view.baseViewModel = viewModel
         
         return view

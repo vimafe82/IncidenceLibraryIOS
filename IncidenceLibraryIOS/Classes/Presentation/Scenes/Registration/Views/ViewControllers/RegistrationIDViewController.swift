@@ -23,7 +23,9 @@ class RegistrationIDViewController: IABaseViewController, StoryboardInstantiable
     
     // MARK: - Lifecycle
     static func create(with viewModel: RegistrationIDViewModel) -> RegistrationIDViewController {
-        let view = RegistrationIDViewController .instantiateViewController()
+        let bundle = Bundle(for: Self.self)
+        
+        let view = RegistrationIDViewController .instantiateViewController(bundle)
         view.baseViewModel = viewModel
         
         return view

@@ -25,7 +25,9 @@ class RegistrationSuccessBeaconViewController: IABaseViewController, StoryboardI
 
     // MARK: - Lifecycle
     static func create(with viewModel: RegistrationSuccessBeaconViewModel) -> RegistrationSuccessBeaconViewController {
-        let view = RegistrationSuccessBeaconViewController .instantiateViewController()
+        let bundle = Bundle(for: Self.self)
+        
+        let view = RegistrationSuccessBeaconViewController .instantiateViewController(bundle)
         view.baseViewModel = viewModel
         
         return view

@@ -23,7 +23,9 @@ class RegistrationTelephoneViewController: IABaseViewController, StoryboardInsta
 
     // MARK: - Lifecycle
     static func create(with viewModel: RegistrationTelephoneViewModel) -> RegistrationTelephoneViewController {
-        let view = RegistrationTelephoneViewController .instantiateViewController()
+        let bundle = Bundle(for: Self.self)
+        
+        let view = RegistrationTelephoneViewController .instantiateViewController(bundle)
         view.baseViewModel = viewModel
         
         return view

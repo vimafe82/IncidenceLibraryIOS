@@ -33,7 +33,9 @@ class RegistrationPlateViewController: IABaseViewController, StoryboardInstantia
 
     // MARK: - Lifecycle
     static func create(with viewModel: RegistrationPlateViewModel) -> RegistrationPlateViewController {
-        let view = RegistrationPlateViewController .instantiateViewController()
+        let bundle = Bundle(for: Self.self)
+        
+        let view = RegistrationPlateViewController .instantiateViewController(bundle)
         view.baseViewModel = viewModel
         
         return view

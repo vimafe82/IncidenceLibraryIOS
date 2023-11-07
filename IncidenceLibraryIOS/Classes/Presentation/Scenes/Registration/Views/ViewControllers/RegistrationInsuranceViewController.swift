@@ -32,7 +32,9 @@ class RegistrationInsuranceViewController: IABaseViewController, StoryboardInsta
 
     // MARK: - Lifecycle
     static func create(with viewModel: RegistrationInsuranceViewModel) -> RegistrationInsuranceViewController {
-        let view = RegistrationInsuranceViewController .instantiateViewController()
+        let bundle = Bundle(for: Self.self)
+        
+        let view = RegistrationInsuranceViewController .instantiateViewController(bundle)
         view.baseViewModel = viewModel
         
         return view

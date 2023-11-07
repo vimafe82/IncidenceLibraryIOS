@@ -72,8 +72,12 @@ class DevelopmentViewController: UIViewController, StoryboardInstantiable {
         navigationController?.pushViewController(viewController, animated: true)
         */
         
-        
+        /*
         let viewController = IncidenceLibraryManager.shared.getDeviceListViewController()
+        navigationController?.pushViewController(viewController, animated: true)
+         */
+        
+        let viewController = IncidenceLibraryManager.shared.getDeviceCreateViewController()
         navigationController?.pushViewController(viewController, animated: true)
     }
     

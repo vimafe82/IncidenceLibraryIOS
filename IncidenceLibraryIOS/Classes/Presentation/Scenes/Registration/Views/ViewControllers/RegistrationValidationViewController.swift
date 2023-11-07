@@ -26,7 +26,9 @@ class RegistrationValidationViewController: IABaseViewController, KeyboardDismis
     
     // MARK: - Lifecycle
     static func create(with viewModel: RegistrationValidationViewModel) -> RegistrationValidationViewController {
-        let view = RegistrationValidationViewController.instantiateViewController()
+        let bundle = Bundle(for: Self.self)
+        
+        let view = RegistrationValidationViewController.instantiateViewController(bundle)
         view.baseViewModel = viewModel
         
         return view

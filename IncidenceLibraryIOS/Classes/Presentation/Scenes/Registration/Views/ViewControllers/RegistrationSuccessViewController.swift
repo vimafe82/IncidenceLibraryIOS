@@ -24,7 +24,9 @@ class RegistrationSuccessViewController: IABaseViewController, StoryboardInstant
     
     // MARK: - Lifecycle
     static func create(with viewModel: RegistrationSuccessViewModel) -> RegistrationSuccessViewController {
-        let view = RegistrationSuccessViewController.instantiateViewController()
+        let bundle = Bundle(for: Self.self)
+        
+        let view = RegistrationSuccessViewController.instantiateViewController(bundle)
         view.baseViewModel = viewModel
         
         return view

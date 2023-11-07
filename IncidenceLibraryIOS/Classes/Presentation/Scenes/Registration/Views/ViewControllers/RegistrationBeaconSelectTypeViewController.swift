@@ -36,7 +36,9 @@ class RegistrationBeaconSelectTypeViewController: IABaseViewController, Storyboa
     
     // MARK: - Lifecycle
     static func create(with viewModel: RegistrationBeaconViewModel) -> RegistrationBeaconSelectTypeViewController {
-        let view = RegistrationBeaconSelectTypeViewController.instantiateViewController()
+        let bundle = Bundle(for: Self.self)
+                            
+        let view = RegistrationBeaconSelectTypeViewController.instantiateViewController(bundle)
         view.baseViewModel = viewModel
         
         return view
@@ -142,6 +144,21 @@ class RegistrationBeaconSelectTypeViewController: IABaseViewController, Storyboa
         closeButton.rightAnchor.constraint(equalTo: view!.rightAnchor).isActive = true
         closeButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
+        let window = view.window!
+        //let mySceneDelegate = self.view.window?.windowScene?.delegate as! SceneDelegate
+        //if let window:UIWindow = mySceneDelegate.window {
+            window.addSubview(scanView)
+            
+            var bottomPadding = 0.0
+            if #available(iOS 11.0, *) {
+                topPadding = window.safeAreaInsets.top
+                bottomPadding = window.safeAreaInsets.bottom
+            }
+            
+            scanView.frame = CGRect.init(x: 0, y: 0, width: window.bounds.width, height: window.bounds.height - topPadding - bottomPadding)
+        //}
+        
+        /*
         let mySceneDelegate = self.view.window?.windowScene?.delegate as! SceneDelegate
         if let window:UIWindow = mySceneDelegate.window {
             window.addSubview(scanView)
@@ -154,6 +171,7 @@ class RegistrationBeaconSelectTypeViewController: IABaseViewController, Storyboa
             
             scanView.frame = CGRect.init(x: 0, y: 0, width: window.bounds.width, height: window.bounds.height - topPadding - bottomPadding)
         }
+        */
 
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         previewLayer.frame = scanView.layer.bounds

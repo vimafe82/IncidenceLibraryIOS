@@ -31,9 +31,20 @@ final class Api {
     static let HEADER_APP = "app"
     static let HEADER_LANG = "lang"
     static let HEADER_PLATFORM = "platform"
+    static let HEADER_AUTHORIZATION = "Authorization"
 }
 
 extension Api {
+    
+    func setup(env: Environment) {
+        if (env == Environment.TEST) {
+            APIEndpoints.API_BASE_URL = APIEndpoints.API_BASE_URL_TEST
+        } else if (env == Environment.PRE) {
+            APIEndpoints.API_BASE_URL = APIEndpoints.API_BASE_URL_PRE
+        } else {
+            APIEndpoints.API_BASE_URL = APIEndpoints.API_BASE_URL_PRO
+        }
+    }
     
     func hasConnection() -> Bool {
         return NetworkReachabilityManager()?.isReachable ?? false
@@ -53,12 +64,11 @@ extension Api {
         }
         
         //headers[Api.HEADER_APP] = Bundle.main.bundleIdentifier
-        headers[Api.HEADER_APP] = "es.incidence.app.test2"
+        headers[Api.HEADER_APP] = "mapfre.com.app"
         headers[Api.HEADER_LANG] = Core.shared.getLanguage()
         headers[Api.HEADER_PLATFORM] = "ios"
         
-        headers[Api.HEADER_TOKEN] = "0a4ddbc1ef2a1a50480c9e366351c7af"
-        headers[Api.HEADER_DEVICE_ID] = "9933"
+        headers[Api.HEADER_AUTHORIZATION] = IncidenceLibraryManager.shared.apiKey
         
         // token: 254c6025c2b3e6c2495bc535b434037a
         // deviceId: 10107
@@ -106,7 +116,7 @@ extension Api {
         
         //let path = "user/validateApiKey"
         //simpleRequest(method: .post, path: path, params: params, completion: completion)
-        let path = "config/home_video"
+        let path = "sdk/config"
         simpleRequest(method: .get, path: path, completion: completion)
     }
     
@@ -237,7 +247,7 @@ extension Api {
             method = .put
         }
         
-        simpleRequest(method: method, path: "device", params: params, completion: { result in
+        simpleRequest(method: method, path: "sdk/device", params: params, completion: { result in
             if (result.isSuccess())
             {
                 let device:IDevice? = result.get(key: "device")

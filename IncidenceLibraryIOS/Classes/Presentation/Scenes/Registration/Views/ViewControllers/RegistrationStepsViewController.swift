@@ -36,7 +36,9 @@ class RegistrationStepsViewController: IABaseViewController, StoryboardInstantia
     
     // MARK: - Lifecycle
     static func create(with viewModel: RegistrationStepsViewModel) -> RegistrationStepsViewController {
-        let view = RegistrationStepsViewController.instantiateViewController()
+        let bundle = Bundle(for: Self.self)
+        
+        let view = RegistrationStepsViewController.instantiateViewController(bundle)
         view.baseViewModel = viewModel
         
         return view

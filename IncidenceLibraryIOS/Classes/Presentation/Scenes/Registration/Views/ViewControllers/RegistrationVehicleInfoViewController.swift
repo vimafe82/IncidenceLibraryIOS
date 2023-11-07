@@ -27,7 +27,9 @@ class RegistrationVehicleInfoViewController: IABaseViewController, StoryboardIns
 
     // MARK: - Lifecycle
     static func create(with viewModel: RegistrationVehicleInfoViewModel) -> RegistrationVehicleInfoViewController {
-        let view = RegistrationVehicleInfoViewController .instantiateViewController()
+        let bundle = Bundle(for: Self.self)
+        
+        let view = RegistrationVehicleInfoViewController .instantiateViewController(bundle)
         view.baseViewModel = viewModel
         
         return view

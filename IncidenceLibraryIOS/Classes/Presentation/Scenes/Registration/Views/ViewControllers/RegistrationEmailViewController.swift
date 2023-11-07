@@ -22,7 +22,9 @@ class RegistrationEmailViewController: IABaseViewController, StoryboardInstantia
 
     // MARK: - Lifecycle
     static func create(with viewModel: RegistrationEmailViewModel) -> RegistrationEmailViewController {
-        let view = RegistrationEmailViewController .instantiateViewController()
+        let bundle = Bundle(for: Self.self)
+        
+        let view = RegistrationEmailViewController .instantiateViewController(bundle)
         view.baseViewModel = viewModel
         
         return view
