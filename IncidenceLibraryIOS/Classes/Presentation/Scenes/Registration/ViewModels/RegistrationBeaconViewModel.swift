@@ -32,6 +32,8 @@ class RegistrationBeaconViewModel: IABaseViewModel {
     public var autoSelectedVehicle:Vehicle?
     public var fromBeacon = false
 
+    var user: User!
+    var vehicle: Vehicle!
     
     internal init(origin: RegistrationOrigin = .registration) {
         self.origin = origin

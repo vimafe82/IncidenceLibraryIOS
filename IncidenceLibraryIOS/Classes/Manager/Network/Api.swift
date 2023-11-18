@@ -569,6 +569,49 @@ extension Api {
         simpleRequest(method: .post, path: "beacons", params: params, completion: completion)
     }
     
+    func addBeaconSdk(beacon:Beacon, vehicle:Vehicle, user: User, completion: @escaping (IResponse) -> Void)
+    {
+        var params:Parameters = [:]
+        //params["beaconTypeId"] = beacon.beaconTypeId
+        /*
+        if let iot = beacon.iot {
+            params["beaconTypeId"] = "2"
+            params["iot"] = iot
+        }
+        else {
+            params["beaconTypeId"] = "1"
+            params["uuid"] = beacon.uuid
+            params["major"] = beacon.major
+            params["minor"] = beacon.minor
+        }
+        
+        params["vehicleId"] = vehicle.id
+         */
+        
+        params["external_user_id"] = user.externalUserId // (identificador externo del usuario)
+        params["name"] = user.name // (nombre del usuario)
+        params["phone"] = user.phone // (teléfono)
+        params["email"] = user.email // (e-mail)
+        params["identity_type"] = String(user.identityType?.name ?? "") // (tipo de documento de identidad: dni, nie, cif)
+        params["dni"] = user.dni // (número del documento de identidad)
+        params["birthday"] = user.birthday // (fecha de Nacimiento)
+        params["check_terms"] = user.checkTerms // (aceptación de la privacidad)
+        params["external_vehicle_id"] = vehicle.externalVehicleId // (identificador externo del vehículo)
+        params["license_plate"] = vehicle.licensePlate // (matrícula del vehículo)
+        params["registration_year"] = vehicle.registrationYear // (fecha de matriculación)
+        params["vehicle_type"] = String(vehicle.vehicleType?.name ?? "") // (tipo del vehículo)
+        params["brand"] = vehicle.brand // (marca del vehículo)
+        params["model"] = vehicle.model // (modelo del vehículo)
+        params["color"] = String(vehicle.color?.name ?? "") // (color del vehículo)
+        params["policy_number"] = vehicle.policy?.policyNumber // (número de la póliza)
+        params["policy_end"] = vehicle.policy?.policyEnd // (fecha caducidad de la póliza)
+        params["policy_identity_type"] = String(vehicle.policy?.identityType?.name ?? "") // (tipo de documento identidad del asegurador)
+        params["policy_dni"] = vehicle.policy?.dni // (documento de identidad del asegurador)
+        params["imei"] = beacon.uuid // (imei)
+        
+        simpleRequest(method: .post, path: "sdk/beacon", params: params, completion: completion)
+    }
+    
     func deleteBeacon(beacon:Beacon, completion: @escaping (IResponse) -> Void)
     {
         var params:Parameters = [:]

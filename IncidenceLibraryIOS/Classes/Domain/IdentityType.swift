@@ -7,12 +7,12 @@
 
 import UIKit
 
-class IdentityType:Codable {
+public class IdentityType:Codable {
     
-    var id: Int?
-    var name: String
+    public var id: Int?
+    public var name: String
     
-    init(){
+    public init(){
         self.id = nil
         self.name = ""
     }

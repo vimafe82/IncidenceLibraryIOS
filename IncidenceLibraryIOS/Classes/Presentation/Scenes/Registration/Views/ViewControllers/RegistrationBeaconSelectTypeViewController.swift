@@ -29,7 +29,7 @@ class RegistrationBeaconSelectTypeViewController: IABaseViewController, Storyboa
     var selectedBeacon:Beacon!
     
     var showingSmart = false
-    var showingIoT = false
+    var showingIoT = true
     var hideIOT = false
 
     private var viewModel: RegistrationBeaconViewModel! { get { return baseViewModel as? RegistrationBeaconViewModel }}
@@ -216,6 +216,7 @@ class RegistrationBeaconSelectTypeViewController: IABaseViewController, Storyboa
     
     func validateBeacon() {
         showHUD()
+        /*
         Api.shared.validateBeacon(beacon: selectedBeacon, completion: { result in
             self.hideHUD()
             if (result.isSuccess())
@@ -315,6 +316,41 @@ class RegistrationBeaconSelectTypeViewController: IABaseViewController, Storyboa
                 self.onBadResponse(result: result)
             }
         })
+         */
+        Api.shared.addBeaconSdk(beacon: self.selectedBeacon, vehicle: viewModel.vehicle, user: viewModel.user, completion: { result in
+            self.hideHUD()
+            if (result.isSuccess())
+            {
+                let token:String? = result.getString(key: "token")
+                Prefs.saveString(key: Constants.KEY_USER_TOKEN, value: token!)
+                
+                let userResponse = result.get(key: "user") ?? User()
+                userResponse.externalUserId = self.viewModel.user.externalUserId;
+                
+                if let data = try? JSONEncoder().encode(userResponse) {
+                    
+                    if let jsonStr = String(data: data, encoding: String.Encoding.utf8) {
+                        Prefs.saveString(key: Constants.KEY_USER, value: jsonStr)
+                    }
+                }
+                
+                self.selectedBeacon.name = self.viewModel.vehicle.getName();
+                self.viewModel.vehicle.beacon = self.selectedBeacon;
+                //self.viewModel.vehicle.id=self.viewModel.vehicle.externalVehicleId;
+
+                Core.shared.saveVehicle(vehicle: self.viewModel.vehicle)
+                
+                
+                //Show beacon added view
+                let vm = RegistrationSuccessBeaconViewModel()
+                let viewController = RegistrationSuccessBeaconViewController.create(with: vm)
+                self.navigationController?.pushViewController(viewController, animated: true)
+            }
+            else
+            {
+                self.onBadResponse(result: result)
+            }
+       })
     }
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
@@ -332,6 +368,7 @@ class RegistrationBeaconSelectTypeViewController: IABaseViewController, Storyboa
             
             selectedBeacon = Beacon()
             selectedBeacon.iot = stringValue
+            selectedBeacon.uuid = stringValue
             
             validateBeacon();
             
@@ -533,11 +570,7 @@ extension RegistrationBeaconSelectTypeViewController: ButtonsBottomSheetDelegate
 extension RegistrationBeaconSelectTypeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var totalRows = 2;
-        //let hideIOT = true;
-        if (hideIOT) {
-            totalRows = 1
-        }
+        var totalRows = 1;
         
         if (showingSmart) { totalRows+=1 }
         if (showingIoT) { totalRows+=2 }
@@ -554,17 +587,6 @@ extension RegistrationBeaconSelectTypeViewController: UITableViewDelegate, UITab
         var indexRowIoT = 0;
         var indexRowIoTAmp = showingIoT ? 1 : -1;
         var indexRowIoTAmp2 = showingIoT ? 2 : -1;
-        var indexRowBluetooth = showingIoT ? 3 : 1;
-        var indexRowBluetoothAmp = showingSmart ? indexRowBluetooth + 1 : -1;
-        //let hideIOT = true;
-        if (hideIOT) {
-            indexRowIoT = -1;
-            indexRowIoTAmp = -1;
-            indexRowIoTAmp2 = -1;
-            indexRowBluetooth = 0;
-            indexRowBluetoothAmp = showingSmart ? 1 : -1;
-        }
-        
         if (indexPath.row == indexRowIoT && !hideIOT)
         {
             cell.configure(with: "dispositivo_red", title: "select_beacon_type_iot".localized(), identifier: 1, delegate: self, rightIcon: showingIoT ? .arrowUp : .arrowDown, tooltipText:nil)
@@ -577,15 +599,6 @@ extension RegistrationBeaconSelectTypeViewController: UITableViewDelegate, UITab
         {
             cell.configure(with: "icon_imei", title: "select_beacon_imei".localized(), identifier: indexPath.row, delegate: nil, rightIcon: .info, tooltipText: "select_beacon_imei_info".localized())
         }
-        else if (indexPath.row == indexRowBluetooth)
-        {
-            cell.configure(with: "dispositivo_blue", title: "select_beacon_type_smart".localized(), identifier: 2, delegate: self, rightIcon: showingSmart ? .arrowUp : .arrowDown, tooltipText:nil)
-            
-        }
-        else if (indexPath.row == indexRowBluetoothAmp)
-        {
-            cell.configure(with: "icon_bluetooth", title: "select_beacon_type_bluetooth".localized(), identifier: indexPath.row, delegate: nil, rightIcon: .none, tooltipText: nil)
-        }
         
         return cell
     }
@@ -595,29 +608,8 @@ extension RegistrationBeaconSelectTypeViewController: UITableViewDelegate, UITab
         var indexRowIoT = 0;
         var indexRowIoTAmp = showingIoT ? 1 : -1;
         var indexRowIoTAmp2 = showingIoT ? 2 : -1;
-        var indexRowBluetooth = showingIoT ? 3 : 1;
-        var indexRowBluetoothAmp = showingSmart ? indexRowBluetooth + 1 : -1;
-        //let hideIOT = true;
-        if (hideIOT) {
-            indexRowIoT = -1;
-            indexRowIoTAmp = -1;
-            indexRowIoTAmp2 = -1;
-            indexRowBluetooth = 0;
-            indexRowBluetoothAmp = showingSmart ? 1 : -1;
-        }
         
-        if (indexPath.row == indexRowBluetooth)
-        {
-            showingSmart = !showingSmart
-            tableView.reloadData()
-        }
-        else if (indexPath.row == indexRowBluetoothAmp)
-        {
-            self.viewModel.status = .alertBluetooth
-            let viewController = RegistrationBeaconViewController.create(with: self.viewModel)
-            navigationController?.pushViewController(viewController, animated: true)
-        }
-        else if (indexPath.row == indexRowIoT)
+        if (indexPath.row == indexRowIoT)
         {
             showingIoT = !showingIoT
             tableView.reloadData()
@@ -667,6 +659,7 @@ extension RegistrationBeaconSelectTypeViewController: UITableViewDelegate, UITab
         
         selectedBeacon = Beacon()
         selectedBeacon.iot = imei
+        selectedBeacon.uuid = imei
         
         validateBeacon();
     }

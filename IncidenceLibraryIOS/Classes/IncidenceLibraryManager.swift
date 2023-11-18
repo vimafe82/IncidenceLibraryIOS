@@ -117,7 +117,7 @@
     }
     
     public func getDeviceListViewController() -> IABaseViewController {
-        let res = validateScreen(screen: DeviceListViewController.storyboardFileName)
+        let res = validateScreen(screen: Constants.SCREEN_DEVICE_LIST)
         if (res == "SCREEN_OK") {
             let viewModel = DeviceListViewModel()
             let viewController = DeviceListViewController.create(with: viewModel)
@@ -127,11 +127,51 @@
         }
     }
     
-    public func getDeviceCreateViewController() -> IABaseViewController {
+    public func getDeviceCreateViewController(user: User!, vehicle: Vehicle!) -> IABaseViewController {
         let res = validateScreen(screen: Constants.SCREEN_DEVICE_CREATE)
         if (res == "SCREEN_OK") {
             let vm = RegistrationBeaconViewModel(origin: .addBeacon)
             vm.fromBeacon = true
+            vm.user = user
+            vm.vehicle = vehicle
+            let viewController = RegistrationBeaconSelectTypeViewController.create(with: vm)
+            return viewController
+            
+        } else {
+            return processScreenError(error: res)
+        }
+    }
+    
+    public func getIncidenceCreateViewController(user: User!, vehicle: Vehicle!, incidence: Incidence!) -> IABaseViewController {
+        let res = validateScreen(screen: Constants.FUNC_REPOR_INC)
+        if (res == "SCREEN_OK") {
+            let vm = ReportIncidenceSimpleViewModel(user: user, vehicle: vehicle, incidence: incidence, createIncidence: true)
+            let viewController = ReportIncidenceSimpleViewController.create(with: vm)
+            return viewController
+            
+        } else {
+            return processScreenError(error: res)
+        }
+    }
+    
+    public func getIncidenceCloseViewController(user: User!, vehicle: Vehicle!, incidence: Incidence!) -> IABaseViewController {
+        let res = validateScreen(screen: Constants.FUNC_CLOSE_INC)
+        if (res == "SCREEN_OK") {
+            let vm = ReportIncidenceSimpleViewModel(user: user, vehicle: vehicle, incidence: incidence, createIncidence: false)
+            let viewController = ReportIncidenceSimpleViewController.create(with: vm)
+            return viewController
+        } else {
+            return processScreenError(error: res)
+        }
+    }
+    
+    public func getEcommerceViewController(user: User!, vehicle: Vehicle!) -> IABaseViewController {
+        let res = validateScreen(screen: Constants.SCREEN_ECOMMERCE)
+        if (res == "SCREEN_OK") {
+            let vm = RegistrationBeaconViewModel(origin: .addBeacon)
+            vm.fromBeacon = true
+            vm.user = user
+            vm.vehicle = vehicle
             let viewController = RegistrationBeaconSelectTypeViewController.create(with: vm)
             return viewController
             

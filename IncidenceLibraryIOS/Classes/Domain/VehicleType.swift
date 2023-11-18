@@ -7,8 +7,10 @@
 
 import UIKit
 
-class VehicleType:Codable {
+public class VehicleType:Codable {
     var id: Int?
-    var name: String?
+    public var name: String?
     var colors: [ColorType]?
+    
+    public init(){}
 }

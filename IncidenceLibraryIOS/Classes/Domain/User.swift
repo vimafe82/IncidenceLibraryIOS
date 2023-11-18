@@ -7,15 +7,18 @@
 
 import UIKit
 
-class User:Codable {
+public class User:Codable {
     var id: Int?
+    public var externalUserId: String?
     var alias: String?
-    var name: String?
-    var phone: String?
-    var email: String?
-    var identityType: IdentityType?
-    var dni: String?
-    var birthday: String?
-    var checkTerms: Int?
-    var checkAdvertising: Int?
+    public var name: String?
+    public var phone: String?
+    public var email: String?
+    public var identityType: IdentityType?
+    public var dni: String?
+    public var birthday: String?
+    public var checkTerms: Int?
+    public var checkAdvertising: Int?
+    
+    public init(){}
 }

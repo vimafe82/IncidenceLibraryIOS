@@ -10,13 +10,14 @@ import Foundation
 public class Vehicle:Codable {
     
     var id: Int?
-    var licensePlate: String?
-    var registrationYear: Int?
-    var brand: String?
-    var model: String?
-    var vehicleType:VehicleType?
-    var color:ColorType?
-    var policy: Policy?
+    public var externalVehicleId: String?
+    public var licensePlate: String?
+    public var registrationYear: Int?
+    public var brand: String?
+    public var model: String?
+    public var vehicleType:VehicleType?
+    public var color:ColorType?
+    public var policy: Policy?
     var insurance: Insurance?
     var beacon: Beacon?
     var incidences: [Incidence]?
@@ -25,7 +26,7 @@ public class Vehicle:Codable {
     //vehiculo ya creado
     var image:String?
     
-    init()
+    public init()
     {
     }
     

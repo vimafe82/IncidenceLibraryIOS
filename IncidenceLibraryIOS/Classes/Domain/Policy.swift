@@ -7,12 +7,14 @@
 
 import UIKit
 
-class Policy:Codable {
+public class Policy:Codable {
 
     var id: Int? = nil
-    var policyNumber: String? = nil
-    var identityType: IdentityType? = nil
-    var dni: String? = nil
-    var policyStart: String? = nil
-    var policyEnd: String? = nil
+    public var policyNumber: String? = nil
+    public var identityType: IdentityType? = nil
+    public var dni: String? = nil
+    public var policyStart: String? = nil
+    public var policyEnd: String? = nil
+    
+    public init(){}
 }

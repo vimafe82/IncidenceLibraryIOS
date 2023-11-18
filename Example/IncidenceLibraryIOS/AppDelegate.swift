@@ -26,9 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
     
-      //let rootVC = AppNavigator.shared.rootViewController
-      
-      let config = IncidenceLibraryConfig(apiKey: .init("bWFwZnJlX2NsaWVudDpkOTBlMTA3ZjdhNGU1NmQyYzlkMTJhMHM3ZTQ1ZDQ1MQ=="), env: .PRE)
+      let apiKey = "bWFwZnJlX2NsaWVudDpkOTBlMTA3ZjdhNGU1NmQyYzlkMTJhMHM3ZTQ1ZDQ1MQ=="
+      let config = IncidenceLibraryConfig(apiKey: .init(apiKey), env: .TEST)
       IncidenceLibraryManager.setup(config)
       IncidenceLibraryManager.shared.printStatusConfig()
       

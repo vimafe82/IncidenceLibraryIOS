@@ -73,6 +73,9 @@ struct Constants {
     
     static let SCREEN_DEVICE_LIST = "SCREEN_DEVICE_LIST"
     static let SCREEN_DEVICE_CREATE = "SCREEN_DEVICE_CREATE"
+    static let SCREEN_DEVICE_DELETE = "SCREEN_DEVICE_DELETE"
+    static let SCREEN_ECOMMERCE = "SCREEN_ECOMMERCE"
     static let FUNC_REPOR_INC = "FUNC_REPOR_INC"
+    static let FUNC_CLOSE_INC = "FUNC_CLOSE_INC"
     static let SCREEN_ERROR = "ERROR"
 }

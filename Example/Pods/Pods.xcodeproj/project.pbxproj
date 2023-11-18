@@ -368,6 +368,8 @@
 		E29FE7BD353B0FE4614C6128B55F5E9F /* AnimatedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C54C18DE31E6790E42B7957FD44AA4B /* AnimatedImageView.swift */; };
 		E44205A764945C015F5D9FA03CFEC639 /* ReportNotificationCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B1E25C46B6F33C7056CBD48721DBD9 /* ReportNotificationCarViewModel.swift */; };
 		E4744D7759E805604B5946F4DAA0E005 /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57A99A5BA3EDFA888457AEE45A2A02B /* ImageProcessor.swift */; };
+		E501D1152AFA0A3C0045ED7A /* ReportIncidenceSimpleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E501D1142AFA0A3C0045ED7A /* ReportIncidenceSimpleViewController.swift */; };
+		E501D1172AFA0A5D0045ED7A /* ReportIncidenceSimpleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E501D1162AFA0A5D0045ED7A /* ReportIncidenceSimpleViewModel.swift */; };
 		E6251F02EE12804D1B66AE32E716E664 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E605A947EC063695DEDF943AC21D6A /* SessionDelegate.swift */; };
 		E6978F9D67984F120CAE76B1D98115EF /* KingfisherOptionsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01410F6CD526F21480687956B322D941 /* KingfisherOptionsInfo.swift */; };
 		E71A9AF8D7FE50F0DBAFF99333150577 /* DeviceDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BED5509BE3F68BCB9E6B39E99194B5B /* DeviceDetailViewModel.swift */; };
@@ -892,6 +894,9 @@
 		E1EBAFFD2B3A24BDECC3155B948EE0EF /* ReportInstructionsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReportInstructionsViewController.swift; sourceTree = "<group>"; };
 		E4BE0AE1401C22BDF6E43E15AC656720 /* VehiclesBeaconEditViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VehiclesBeaconEditViewController.swift; sourceTree = "<group>"; };
 		E4F5293FA1EA77DED35E499E8281E7E4 /* Session.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		E501D1142AFA0A3C0045ED7A /* ReportIncidenceSimpleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportIncidenceSimpleViewController.swift; sourceTree = "<group>"; };
+		E501D1162AFA0A5D0045ED7A /* ReportIncidenceSimpleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportIncidenceSimpleViewModel.swift; sourceTree = "<group>"; };
+		E501D1182AFA0A740045ED7A /* ReportIncidenceSimpleScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReportIncidenceSimpleScene.storyboard; sourceTree = "<group>"; };
 		E5295542119CFC97DD55073852C90BC6 /* Kingfisher-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Kingfisher-dummy.m"; sourceTree = "<group>"; };
 		E57A99A5BA3EDFA888457AEE45A2A02B /* ImageProcessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageProcessor.swift; path = Sources/Image/ImageProcessor.swift; sourceTree = "<group>"; };
 		E57ABAEDADECD9EC89CA7642236E9BE6 /* RegistrationInsuranceViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegistrationInsuranceViewController.swift; sourceTree = "<group>"; };
@@ -1670,6 +1675,7 @@
 		7B2810CCDBAAD3639E799345351ED347 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E501D1132AFA09FD0045ED7A /* ReportIncidenceSimple */,
 				42150023C10E9B66A6D1A18979308BEA /* Account */,
 				FC2BCF1E47CC117B5B4D4F3F1AC974A6 /* Add */,
 				829AA7A1A30C69AC994F828247531452 /* Devices */,
@@ -2075,6 +2081,16 @@
 				7E54C325320F62946A664E1B9B87EA5F /* CallBottomSheetView.swift */,
 			);
 			path = BottomSheet;
+			sourceTree = "<group>";
+		};
+		E501D1132AFA09FD0045ED7A /* ReportIncidenceSimple */ = {
+			isa = PBXGroup;
+			children = (
+				E501D1142AFA0A3C0045ED7A /* ReportIncidenceSimpleViewController.swift */,
+				E501D1162AFA0A5D0045ED7A /* ReportIncidenceSimpleViewModel.swift */,
+				E501D1182AFA0A740045ED7A /* ReportIncidenceSimpleScene.storyboard */,
+			);
+			path = ReportIncidenceSimple;
 			sourceTree = "<group>";
 		};
 		E6637C402400695CC970DFD8966573D9 /* Pod */ = {
@@ -2716,6 +2732,7 @@
 				60DDF174F6397734E72797B00CE162AF /* RegistrationBeaconViewModel.swift in Sources */,
 				232BC7937524BA0676599A312DCD97BF /* RegistrationColorViewController.swift in Sources */,
 				8469DC72FE3A76A37DE9A3AEDDBBC54E /* RegistrationColorViewModel.swift in Sources */,
+				E501D1152AFA0A3C0045ED7A /* ReportIncidenceSimpleViewController.swift in Sources */,
 				D1D18234812E79166A2C1A8C78BC9B8F /* RegistrationEmailViewController.swift in Sources */,
 				6CA5FAFC87B303EC1C05C8BF141277A6 /* RegistrationEmailViewModel.swift in Sources */,
 				B3681E4B3D73A0CFEFDBD440B50BA010 /* RegistrationIDViewController.swift in Sources */,
@@ -2812,6 +2829,7 @@
 				85D6C3BF52FBDEF2C572A22C94EB7D9F /* VehiclesDeleteBottomSheetView.swift in Sources */,
 				9F8B80CAD1BF2D778D96B494A9C2B6FA /* VehiclesDriversEditViewController.swift in Sources */,
 				C1D79759A25750C71825BCC737BC178B /* VehiclesDriversEditViewModel.swift in Sources */,
+				E501D1172AFA0A5D0045ED7A /* ReportIncidenceSimpleViewModel.swift in Sources */,
 				A115A7CECC437394CB42B461B2D536AC /* VehiclesDriversViewController.swift in Sources */,
 				C75570AE90F57246E8D7005075068DD4 /* VehiclesDriversViewModel.swift in Sources */,
 				5B1C51B8BD170DD5F471CC638C9DEA17 /* VehicleSelectionCell.swift in Sources */,

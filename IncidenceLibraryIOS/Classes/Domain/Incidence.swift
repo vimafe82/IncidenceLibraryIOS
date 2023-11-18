@@ -8,13 +8,14 @@
 import UIKit
 import Foundation
 
-class Incidence:Codable {
+public class Incidence:Codable {
     
     
     var id: Int?
-    let street, city, country, dateCreated: String?
-    let latitude, longitude: Double?
-    let incidenceType: IncidenceType?
+    public var externalIncidenceId: String?
+    public var street, city, country, dateCreated: String?
+    public var latitude, longitude: Double?
+    public var incidenceType: IncidenceType?
     var openApp: OpenApp? = nil
     
     //0=Pending; 1=Assigned; 2=On route; 3=In destination; 4=Closed
@@ -26,9 +27,10 @@ class Incidence:Codable {
     var asitur: Int?
     var reporter: Int?
     
-    init()
+    public init()
     {
         self.id = nil
+        self.externalIncidenceId = nil
         self.street = nil
         self.city = nil
         self.country = nil

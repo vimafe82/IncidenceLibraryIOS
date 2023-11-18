@@ -7,9 +7,11 @@
 
 import UIKit
 
-class ColorType:Codable {
+public class ColorType:Codable {
     var id: Int?
-    var name: String?
+    public var name: String?
     var color: String?
     var image: String?
+    
+    public init(){}
 }

@@ -7,8 +7,13 @@
 
 import UIKit
 
-class IncidenceType:Codable {
+public class IncidenceType:Codable {
     var id: Int?
     var parent: Int?
     var name: String
+    public var externalId: String?
+    
+    public init() {
+        name = ""
+    }
 }
