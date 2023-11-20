@@ -34,6 +34,14 @@ class DevelopmentViewController: UIViewController, StoryboardInstantiable {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        let dni = "25111111T"
+        let phone = "650020001"
+        let externalUserId = "25001"
+        let externalVehicleId = "25001"
+        let licensePlate = "2511XXX"
+        let externalIncidenceId = "25001"
+        let imei = "869154040054509"
+        
         dniIdentityType = IdentityType();
         dniIdentityType.name = "dni"; // (tipo de documento de identidad: dni, nie, cif)
 
@@ -47,21 +55,21 @@ class DevelopmentViewController: UIViewController, StoryboardInstantiable {
         policy.policyNumber = "222222222"; // (número de la póliza)
         policy.policyEnd = "2024-10-09"; // (fecha caducidad de la póliza)
         policy.identityType = dniIdentityType; // (tipo de documento identidad del asegurador)
-        policy.dni = "22222222T"; // (documento de identidad del asegurador)
+        policy.dni = dni; // (documento de identidad del asegurador)
 
         user = User();
-        user.externalUserId = "10002"; // (identificador externo del usuario)
+        user.externalUserId = externalUserId; // (identificador externo del usuario)
         user.name = "Nombre TEST"; // (nombre del usuario)
-        user.phone = "600010002"; // (teléfono)
+        user.phone = phone; // (teléfono)
         user.email = "sdkm2@tridenia.com"; // (e-mail)
         user.identityType = dniIdentityType;
-        user.dni = "22222222T"; // (número del documento de identidad)
+        user.dni = dni; // (número del documento de identidad)
         user.birthday = "1979-09-29"; // (fecha de Nacimiento)
         user.checkTerms = 1; // (aceptación de la privacidad)
 
         vehicle = Vehicle();
-        vehicle.externalVehicleId = "11002";
-        vehicle.licensePlate = "2222XXX"; // (matrícula del vehículo)
+        vehicle.externalVehicleId = externalVehicleId;
+        vehicle.licensePlate = licensePlate; // (matrícula del vehículo)
         vehicle.registrationYear = 2022; // (fecha de matriculación)
         vehicle.vehicleType = vehicleType; // (tipo del vehículo)
         vehicle.brand = "Seat"; // (marca del vehículo)
@@ -80,7 +88,7 @@ class DevelopmentViewController: UIViewController, StoryboardInstantiable {
         incidence.country = "España";
         incidence.latitude = 41.4435945;
         incidence.longitude = 2.2319534;
-        incidence.externalIncidenceId = "12002";
+        incidence.externalIncidenceId = externalIncidenceId;
     }
 
     override func didReceiveMemoryWarning() {
@@ -88,27 +96,32 @@ class DevelopmentViewController: UIViewController, StoryboardInstantiable {
         // Dispose of any resources that can be recreated.
     }
    
-    @IBAction func deviceCreatePressed(_ sender: Any) {
+    @IBAction func btnDeviceCreatePressed(_ sender: Any) {
         let viewController = IncidenceLibraryManager.shared.getDeviceCreateViewController(user: user, vehicle: vehicle)
         navigationController?.pushViewController(viewController, animated: true)
     }
     
-    @IBAction func deviceListPressed(_ sender: Any) {
+    @IBAction func btnDeviceDeletePressed(_ sender: Any) {
         let viewController = IncidenceLibraryManager.shared.getDeviceListViewController()
         navigationController?.pushViewController(viewController, animated: true)
     }
     
-    @IBAction func incidenceCreatePressed(_ sender: Any) {
+    @IBAction func btnDeviceReviewPressed(_ sender: Any) {
+        let viewController = IncidenceLibraryManager.shared.getDeviceListViewController()
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    @IBAction func btnIncidenceCreatePressed(_ sender: Any) {
         let viewController = IncidenceLibraryManager.shared.getIncidenceCreateViewController(user: user, vehicle: vehicle, incidence: incidence)
         navigationController?.pushViewController(viewController, animated: true)
     }
     
-    @IBAction func incidenceClosePressed(_ sender: Any) {
+    @IBAction func btnIncidenceClosePressed(_ sender: Any) {
         let viewController = IncidenceLibraryManager.shared.getIncidenceCloseViewController(user: user, vehicle: vehicle, incidence: incidence)
         navigationController?.pushViewController(viewController, animated: true)
     }
     
-    @IBAction func ecommercePressed(_ sender: Any) {
+    @IBAction func btnEcommercePressed(_ sender: Any) {
         let viewController = IncidenceLibraryManager.shared.getEcommerceViewController(user: user, vehicle: vehicle)
         navigationController?.pushViewController(viewController, animated: true)
     }
