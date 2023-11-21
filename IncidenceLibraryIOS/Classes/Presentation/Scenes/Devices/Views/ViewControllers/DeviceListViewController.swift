@@ -137,9 +137,9 @@ extension DeviceListViewController: UITableViewDelegate, UITableViewDataSource {
             }
             else
             {
-                let vm = DeviceDetailViewModel(device: beacon)
-                let vc = DeviceDetailViewController.create(with: vm)
-                navigationController?.pushViewController(vc, animated: true)
+                //let vm = DeviceDetailViewModel(device: beacon)
+                //let vc = DeviceDetailViewController.create(with: vm)
+                //navigationController?.pushViewController(vc, animated: true)
             }
         }
     }

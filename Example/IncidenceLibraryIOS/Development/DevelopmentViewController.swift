@@ -102,23 +102,35 @@ class DevelopmentViewController: UIViewController, StoryboardInstantiable {
     }
     
     @IBAction func btnDeviceDeletePressed(_ sender: Any) {
-        let viewController = IncidenceLibraryManager.shared.getDeviceListViewController()
-        navigationController?.pushViewController(viewController, animated: true)
+        //let viewController = IncidenceLibraryManager.shared.getDeviceListViewController()
+        //navigationController?.pushViewController(viewController, animated: true)
+        
+        IncidenceLibraryManager.shared.deleteBeaconFunc(user: user, vehicle: vehicle, completion: { result in
+            print(result)
+       })
     }
     
     @IBAction func btnDeviceReviewPressed(_ sender: Any) {
-        let viewController = IncidenceLibraryManager.shared.getDeviceListViewController()
+        let viewController = IncidenceLibraryManager.shared.getDeviceListViewController(user: user, vehicle: vehicle)
         navigationController?.pushViewController(viewController, animated: true)
     }
     
     @IBAction func btnIncidenceCreatePressed(_ sender: Any) {
-        let viewController = IncidenceLibraryManager.shared.getIncidenceCreateViewController(user: user, vehicle: vehicle, incidence: incidence)
-        navigationController?.pushViewController(viewController, animated: true)
+        //let viewController = IncidenceLibraryManager.shared.getIncidenceCreateViewController(user: user, vehicle: vehicle, incidence: incidence)
+        //navigationController?.pushViewController(viewController, animated: true)
+        
+        IncidenceLibraryManager.shared.createIncidenceFunc(user: user, vehicle: vehicle, incidence: incidence, completion: { result in
+            print(result)
+       })
     }
     
     @IBAction func btnIncidenceClosePressed(_ sender: Any) {
-        let viewController = IncidenceLibraryManager.shared.getIncidenceCloseViewController(user: user, vehicle: vehicle, incidence: incidence)
-        navigationController?.pushViewController(viewController, animated: true)
+        //let viewController = IncidenceLibraryManager.shared.getIncidenceCloseViewController(user: user, vehicle: vehicle, incidence: incidence)
+        //navigationController?.pushViewController(viewController, animated: true)
+        
+        IncidenceLibraryManager.shared.closeIncidenceFunc(user: user, vehicle: vehicle, incidence: incidence, completion: { result in
+            print(result)
+       })
     }
     
     @IBAction func btnEcommercePressed(_ sender: Any) {

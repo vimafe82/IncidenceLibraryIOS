@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   ) -> Bool {
     
       let apiKey = "bWFwZnJlX2NsaWVudDpkOTBlMTA3ZjdhNGU1NmQyYzlkMTJhMHM3ZTQ1ZDQ1MQ=="
-      let config = IncidenceLibraryConfig(apiKey: .init(apiKey), env: .TEST)
+      let config = IncidenceLibraryConfig(apiKey: .init(apiKey), env: .PRE)
       IncidenceLibraryManager.setup(config)
       IncidenceLibraryManager.shared.printStatusConfig()
       

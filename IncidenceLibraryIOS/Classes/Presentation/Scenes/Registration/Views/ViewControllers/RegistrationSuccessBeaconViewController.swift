@@ -69,6 +69,12 @@ class RegistrationSuccessBeaconViewController: IABaseViewController, StoryboardI
 
     @IBAction func continueButtonPressed(_ sender: Any) {
         if viewModel.origin == .addBeacon {
+            
+            navigationController?.view.subviews.first(where: { (view) -> Bool in
+                return view is StepperView
+            })?.removeFromSuperview()
+            AppNavigation.setupNavigationApperance(navigationController!, with: .transparent)
+            
             navigationController?.popToRootViewController(animated: true)
         } else {
             let vm = RegistrationSuccessViewModel()

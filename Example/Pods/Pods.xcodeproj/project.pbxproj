@@ -370,6 +370,8 @@
 		E4744D7759E805604B5946F4DAA0E005 /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57A99A5BA3EDFA888457AEE45A2A02B /* ImageProcessor.swift */; };
 		E501D1152AFA0A3C0045ED7A /* ReportIncidenceSimpleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E501D1142AFA0A3C0045ED7A /* ReportIncidenceSimpleViewController.swift */; };
 		E501D1172AFA0A5D0045ED7A /* ReportIncidenceSimpleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E501D1162AFA0A5D0045ED7A /* ReportIncidenceSimpleViewModel.swift */; };
+		E510E0BE2B0CCC3500F60404 /* IActionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510E0BD2B0CCC3500F60404 /* IActionResponse.swift */; };
+		E510E0C02B0CD36400F60404 /* DeviceDetailSdkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E510E0BF2B0CD36400F60404 /* DeviceDetailSdkViewModel.swift */; };
 		E6251F02EE12804D1B66AE32E716E664 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E605A947EC063695DEDF943AC21D6A /* SessionDelegate.swift */; };
 		E6978F9D67984F120CAE76B1D98115EF /* KingfisherOptionsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01410F6CD526F21480687956B322D941 /* KingfisherOptionsInfo.swift */; };
 		E71A9AF8D7FE50F0DBAFF99333150577 /* DeviceDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BED5509BE3F68BCB9E6B39E99194B5B /* DeviceDetailViewModel.swift */; };
@@ -897,6 +899,8 @@
 		E501D1142AFA0A3C0045ED7A /* ReportIncidenceSimpleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportIncidenceSimpleViewController.swift; sourceTree = "<group>"; };
 		E501D1162AFA0A5D0045ED7A /* ReportIncidenceSimpleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportIncidenceSimpleViewModel.swift; sourceTree = "<group>"; };
 		E501D1182AFA0A740045ED7A /* ReportIncidenceSimpleScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReportIncidenceSimpleScene.storyboard; sourceTree = "<group>"; };
+		E510E0BD2B0CCC3500F60404 /* IActionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IActionResponse.swift; sourceTree = "<group>"; };
+		E510E0BF2B0CD36400F60404 /* DeviceDetailSdkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailSdkViewModel.swift; sourceTree = "<group>"; };
 		E5295542119CFC97DD55073852C90BC6 /* Kingfisher-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Kingfisher-dummy.m"; sourceTree = "<group>"; };
 		E57A99A5BA3EDFA888457AEE45A2A02B /* ImageProcessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageProcessor.swift; path = Sources/Image/ImageProcessor.swift; sourceTree = "<group>"; };
 		E57ABAEDADECD9EC89CA7642236E9BE6 /* RegistrationInsuranceViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegistrationInsuranceViewController.swift; sourceTree = "<group>"; };
@@ -1143,6 +1147,7 @@
 				6BED5509BE3F68BCB9E6B39E99194B5B /* DeviceDetailViewModel.swift */,
 				CA2FD0E8F9D693A01A8C3C1C2F1911DB /* DeviceEditNameViewModel.swift */,
 				5548BD294C1CF10A5B3BC254B12F9828 /* DeviceListViewModel.swift */,
+				E510E0BF2B0CD36400F60404 /* DeviceDetailSdkViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1223,6 +1228,7 @@
 				8AC9E1CEA0A9966A5F32AB10F8BCB36E /* SpeechRecognizer.swift */,
 				CE2783C5B0F1B0239B40EF4B0D8500C3 /* Network */,
 				B60EDB89C0247F8D6BF74488953F0AB0 /* Utils */,
+				E510E0BD2B0CCC3500F60404 /* IActionResponse.swift */,
 			);
 			name = Manager;
 			path = IncidenceLibraryIOS/Classes/Manager;
@@ -2638,6 +2644,7 @@
 				41058B080B676E930FC54F03AA144878 /* DeviceDeleteBottomSheetView.swift in Sources */,
 				0B04CA8B607074CDF734D422026E2A9A /* DeviceDetailInfoViewController.swift in Sources */,
 				C839409C4866ACBDC9FF9C8965FB209B /* DeviceDetailViewController.swift in Sources */,
+				E510E0C02B0CD36400F60404 /* DeviceDetailSdkViewModel.swift in Sources */,
 				E71A9AF8D7FE50F0DBAFF99333150577 /* DeviceDetailViewModel.swift in Sources */,
 				6839D18712C635AB71E5263D30A48400 /* DeviceEditNameViewController.swift in Sources */,
 				5F04B2DBF95E9F53BAFCB0947E02B359 /* DeviceEditNameViewModel.swift in Sources */,
@@ -2835,6 +2842,7 @@
 				5B1C51B8BD170DD5F471CC638C9DEA17 /* VehicleSelectionCell.swift in Sources */,
 				0A84A47770BF3280762085FF9AAB5020 /* VehiclesInfoEditViewController.swift in Sources */,
 				70D577A1AE83FC48A72252496CC7E9B4 /* VehiclesInfoEditViewModel.swift in Sources */,
+				E510E0BE2B0CCC3500F60404 /* IActionResponse.swift in Sources */,
 				E75D8ABA7B2D63E9DD56636CB87B668E /* VehiclesInfoViewController.swift in Sources */,
 				CEB80718303497727AC8A50B5645F4B5 /* VehiclesInfoViewModel.swift in Sources */,
 				0EC2E07E2CE45AF556017D621C709960 /* VehiclesInsuranceEditViewController.swift in Sources */,

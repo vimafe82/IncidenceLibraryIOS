@@ -21,23 +21,18 @@ class DeviceDetailViewController: IABaseViewController, StoryboardInstantiable {
     var bottomSheetController: BottomSheetViewController?
     
     static var storyboardFileName = "DevicesScene"
-    private var viewModel: DeviceDetailViewModel! { get { return baseViewModel as? DeviceDetailViewModel }}
+    private var viewModel: DeviceDetailSdkViewModel! { get { return baseViewModel as? DeviceDetailSdkViewModel }}
     
     private var isPrincipal = false
+    private var device: Beacon?
 
     
     // MARK: - Lifecycle
-    static func create(with viewModel: DeviceDetailViewModel) -> DeviceDetailViewController {
-        let view = DeviceDetailViewController.instantiateViewController()
-        view.baseViewModel = viewModel
+    static func create(with viewModel: DeviceDetailSdkViewModel) -> DeviceDetailViewController {
+        let bundle = Bundle(for: Self.self)
         
-        //cogemos el vehicle de getVehicles porque ahí si informa los drivers
-        if let ve = viewModel.device.vehicle, let veId = ve.id {
-            let vehicle = Core.shared.getVehicle(idVehicle: veId)
-            if (Core.shared.isUserPrimaryForVehicle(vehicle)) {
-                view.isPrincipal = true
-            }
-        }
+        let view = DeviceDetailViewController.instantiateViewController(bundle)
+        view.baseViewModel = viewModel
         
         return view
     }
@@ -65,7 +60,8 @@ class DeviceDetailViewController: IABaseViewController, StoryboardInstantiable {
         
         
         addCarButton.configure(text: viewModel.addButtonText)
-        addCarButton.isHidden = viewModel.device.vehicle != nil
+        //addCarButton.isHidden = device?.vehicle != nil
+        addCarButton.isHidden = true
         addCarButton.onTap { [weak self] in
             let vm = RegistrationPlateViewModel(origin: .add)
             let viewController = RegistrationPlateViewController.create(with: vm)
@@ -76,28 +72,48 @@ class DeviceDetailViewController: IABaseViewController, StoryboardInstantiable {
         }
         
         validateDeviceButton.configure(text: viewModel.validateDeviceButtonText)
-        validateDeviceButton.isHidden = viewModel.device.beaconType?.id != 2
         validateDeviceButton.onTap { [weak self] in
             if let beacon = self?.viewModel {
                 let vc = DeviceDetailInfoViewController.create(with: beacon)
                 self?.navigationController?.pushViewController(vc, animated: true)
             }
         }
-        
+        scrollView.isHidden = true
         setUpNavigation()
     }
     
+    func updateUI() {
+        scrollView.isHidden = false
+        validateDeviceButton.isHidden = device?.beaconType?.id == 1
+        nameTextFieldView.configure(titleText: viewModel.fieldNameTitle, valueText: device?.name ?? "-")
+        modelTextFieldView.configure(titleText: viewModel.fieldModelTitle, valueText: device?.beaconType?.name ?? "")
+        linkedVehicleTextFieldView.configure(titleText: viewModel.fieldLinkedVehicleTitle, valueText: device?.vehicle?.getName() ?? "-")
+    }
+    
     override func loadData() {
-        nameTextFieldView.configure(titleText: viewModel.fieldNameTitle, valueText: viewModel.device.name ?? "-")
-        modelTextFieldView.configure(titleText: viewModel.fieldModelTitle, valueText: viewModel.device.beaconType?.name ?? "")
-        linkedVehicleTextFieldView.configure(titleText: viewModel.fieldLinkedVehicleTitle, valueText: viewModel.device.vehicle?.getName() ?? "-")
+        showHUD()
+        Api.shared.getBeaconSdk(vehicle: viewModel.vehicle, user: viewModel.user, completion: { result in
+            self.hideHUD()
+            if (result.isSuccess())
+            {
+                let beacons = result.getList(key: "beacon") ?? [Beacon]()
+                if (beacons.count > 0) {
+                    self.device = beacons[0]
+                }
+                self.updateUI()
+            }
+            else
+            {
+                self.onBadResponse(result: result)
+            }
+       })
     }
     
     private func configureBottomSheet() {
         let view = ButtonsBottomSheetView()
 
-        let name = viewModel.device.vehicle != nil ? viewModel.device.vehicle?.getName() ?? "" : ""
-        let title = viewModel.device.vehicle != nil ? String(format: "delete_device_vinculated_message".localized(), viewModel.device.name ?? "") : String(format: "delete_device_message".localized(), name)
+        let name = device?.vehicle != nil ? device?.vehicle?.getName() ?? "" : ""
+        let title = device?.vehicle != nil ? String(format: "delete_device_vinculated_message".localized(), device?.name ?? "") : String(format: "delete_device_message".localized(), name)
         view.configure(delegate: self, title:nil, desc: title, firstButtonText: "cancel".localized(), secondButtonText: "delete".localized(), identifier: nil)
         
         let controller = BottomSheetViewController(contentView: view)
@@ -121,14 +137,14 @@ class DeviceDetailViewController: IABaseViewController, StoryboardInstantiable {
     }
     
     @objc func editPressed() {
-        let vm = DeviceEditNameViewModel(device: viewModel.device)
+        let vm = DeviceEditNameViewModel(device: device)
         let vc = DeviceEditViewController.create(with: vm)
         navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func beaconUpdated(_ notification: Notification) {
         if let beacon = notification.object as? Beacon {
-            viewModel.device = beacon
+            device = beacon
             loadData()
         }
     }
@@ -143,12 +159,12 @@ extension DeviceDetailViewController: ButtonsBottomSheetDelegate {
         bottomSheetController?.dismiss(animated: true, completion: {
             
             self.showHUD()
-            Api.shared.deleteBeacon(beacon: self.viewModel.device, completion: { result in
+            Api.shared.deleteBeacon(beacon: self.device!, completion: { result in
                 self.hideHUD()
                 if (result.isSuccess())
                 {
                     //cogemos el vehicle de getVehicles porque ahí si informa los drivers
-                    if let ve = self.viewModel.device.vehicle, let veId = ve.id {
+                    if let ve = self.device?.vehicle, let veId = ve.id {
                         if let vehicle = Core.shared.getVehicle(idVehicle: veId){
                             vehicle.beacon = nil
                             Core.shared.saveVehicle(vehicle: vehicle)
@@ -156,7 +172,7 @@ extension DeviceDetailViewController: ButtonsBottomSheetDelegate {
                         }
                     }
                     
-                    EventNotification.post(code: .BEACON_DELETED, object: self.viewModel.device)
+                    EventNotification.post(code: .BEACON_DELETED, object: self.device)
                     self.navigationController?.popViewController(animated: true)
                 }
                 else

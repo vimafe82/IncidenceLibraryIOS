@@ -343,6 +343,7 @@ class RegistrationBeaconSelectTypeViewController: IABaseViewController, Storyboa
                 
                 //Show beacon added view
                 let vm = RegistrationSuccessBeaconViewModel()
+                vm.origin = .addBeacon
                 let viewController = RegistrationSuccessBeaconViewController.create(with: vm)
                 self.navigationController?.pushViewController(viewController, animated: true)
             }

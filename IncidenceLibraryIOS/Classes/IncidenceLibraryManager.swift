@@ -116,11 +116,11 @@
         }
     }
     
-    public func getDeviceListViewController() -> IABaseViewController {
+    public func getDeviceListViewController(user: User!, vehicle: Vehicle!) -> IABaseViewController {
         let res = validateScreen(screen: Constants.SCREEN_DEVICE_LIST)
         if (res == "SCREEN_OK") {
-            let viewModel = DeviceListViewModel()
-            let viewController = DeviceListViewController.create(with: viewModel)
+            let viewModel = DeviceDetailSdkViewModel(vehicle: vehicle, user: user)
+            let viewController = DeviceDetailViewController.create(with: viewModel)
             return viewController
         } else {
             return processScreenError(error: res)
@@ -190,5 +190,120 @@
         let viewModel = ErrorViewModel(error: error)
         let viewController = ErrorViewController.create(with: viewModel)
         return viewController
+    }
+    
+    public func deleteBeaconFunc(user: User!, vehicle: Vehicle!, completion: @escaping (IActionResponse) -> Void) {
+        /*
+        Api.deleteBeaconSdk(new IRequestListener() {
+            @Override
+            public void onFinish(IResponse response) {
+                if (iActionListener != null) {
+                    IActionResponse actionResponse;
+                    if (response.isSuccess())
+                    {
+                        actionResponse = new IActionResponse(true);
+                    }
+                    else
+                    {
+                        actionResponse = new IActionResponse(false, response.message);
+                    }
+
+                    iActionListener.onFinish(actionResponse);
+                }
+            }
+        }, user, vehicle);
+        */
+
+        Api.shared.deleteBeaconSdk(vehicle: vehicle, user: user, completion: { result in
+            
+            var response: IActionResponse
+            
+            if (result.isSuccess())
+            {
+                response = IActionResponse(status: true)
+            }
+            else
+            {
+                response = IActionResponse(status: false, message: result.message)
+            }
+            
+            completion(response)
+       })
+    }
+
+    public func createIncidenceFunc(user: User!, vehicle: Vehicle!, incidence: Incidence!, completion: @escaping (IActionResponse) -> Void) {
+        /*
+        Api.postIncidenceSdk(new IRequestListener() {
+            @Override
+            public void onFinish(IResponse response) {
+                if (iActionListener != null) {
+                    IActionResponse actionResponse;
+                    if (response.isSuccess())
+                    {
+                        actionResponse = new IActionResponse(true);
+                    }
+                    else
+                    {
+                        actionResponse = new IActionResponse(false, response.message);
+                    }
+
+                    iActionListener.onFinish(actionResponse);
+                }
+            }
+        }, user, vehicle, incidence);
+        */
+        Api.shared.postIncidenceSdk(vehicle: vehicle, user: user, incidence: incidence, completion: { result in
+            
+            var response: IActionResponse
+            
+            if (result.isSuccess())
+            {
+                response = IActionResponse(status: true)
+            }
+            else
+            {
+                response = IActionResponse(status: false, message: result.message)
+            }
+            
+            completion(response)
+       })
+    }
+
+    public func closeIncidenceFunc(user: User!, vehicle: Vehicle!, incidence: Incidence!, completion: @escaping (IActionResponse) -> Void) {
+        Api.shared.putIncidenceSdk(vehicle: vehicle, user: user, incidence: incidence, completion: { result in
+            
+            var response: IActionResponse
+            
+            if (result.isSuccess())
+            {
+                response = IActionResponse(status: true)
+            }
+            else
+            {
+                response = IActionResponse(status: false, message: result.message)
+            }
+            
+            completion(response)
+       })
+        /*
+        Api.putIncidenceSdk(new IRequestListener() {
+            @Override
+            public void onFinish(IResponse response) {
+                if (iActionListener != null) {
+                    IActionResponse actionResponse;
+                    if (response.isSuccess())
+                    {
+                        actionResponse = new IActionResponse(true);
+                    }
+                    else
+                    {
+                        actionResponse = new IActionResponse(false, response.message);
+                    }
+
+                    iActionListener.onFinish(actionResponse);
+                }
+            }
+        }, user, vehicle, incidence);
+         */
     }
 }

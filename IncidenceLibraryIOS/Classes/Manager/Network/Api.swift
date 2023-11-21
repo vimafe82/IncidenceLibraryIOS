@@ -621,6 +621,32 @@ extension Api {
         simpleRequest(method: .delete, path: "vehicle/beacon", params: params, completion: completion)
     }
     
+    func deleteBeaconSdk(vehicle:Vehicle, user: User, completion: @escaping (IResponse) -> Void)
+    {
+        var params:Parameters = [:]
+        params["external_user_id"] = user.externalUserId // (identificador externo del usuario)
+        params["name"] = user.name // (nombre del usuario)
+        params["phone"] = user.phone // (teléfono)
+        params["email"] = user.email // (e-mail)
+        params["identity_type"] = String(user.identityType?.name ?? "") // (tipo de documento de identidad: dni, nie, cif)
+        params["dni"] = user.dni // (número del documento de identidad)
+        params["birthday"] = user.birthday // (fecha de Nacimiento)
+        params["check_terms"] = user.checkTerms // (aceptación de la privacidad)
+        params["external_vehicle_id"] = vehicle.externalVehicleId // (identificador externo del vehículo)
+        params["license_plate"] = vehicle.licensePlate // (matrícula del vehículo)
+        params["registration_year"] = vehicle.registrationYear // (fecha de matriculación)
+        params["vehicle_type"] = String(vehicle.vehicleType?.name ?? "") // (tipo del vehículo)
+        params["brand"] = vehicle.brand // (marca del vehículo)
+        params["model"] = vehicle.model // (modelo del vehículo)
+        params["color"] = String(vehicle.color?.name ?? "") // (color del vehículo)
+        params["policy_number"] = vehicle.policy?.policyNumber // (número de la póliza)
+        params["policy_end"] = vehicle.policy?.policyEnd // (fecha caducidad de la póliza)
+        params["policy_identity_type"] = String(vehicle.policy?.identityType?.name ?? "") // (tipo de documento identidad del asegurador)
+        params["policy_dni"] = vehicle.policy?.dni // (documento de identidad del asegurador)
+        
+        simpleRequest(method: .delete, path: "sdk/beacon", params: params, completion: completion)
+    }
+    
     func getBeacons(completion: @escaping (IResponse) -> Void)
     {
         simpleRequest(method: .get, path: "beacons", completion: completion)
@@ -740,6 +766,42 @@ extension Api {
         })
     }
     
+    func postIncidenceSdk(vehicle:Vehicle, user: User, incidence: Incidence, completion: @escaping (IResponse) -> Void)
+    {
+        var params:Parameters = [:]
+        
+        params["external_user_id"] = user.externalUserId // (identificador externo del usuario)
+        params["name"] = user.name // (nombre del usuario)
+        params["phone"] = user.phone // (teléfono)
+        params["email"] = user.email // (e-mail)
+        params["identity_type"] = String(user.identityType?.name ?? "") // (tipo de documento de identidad: dni, nie, cif)
+        params["dni"] = user.dni // (número del documento de identidad)
+        params["birthday"] = user.birthday // (fecha de Nacimiento)
+        params["check_terms"] = user.checkTerms // (aceptación de la privacidad)
+        params["external_vehicle_id"] = vehicle.externalVehicleId // (identificador externo del vehículo)
+        params["license_plate"] = vehicle.licensePlate // (matrícula del vehículo)
+        params["registration_year"] = vehicle.registrationYear // (fecha de matriculación)
+        params["vehicle_type"] = String(vehicle.vehicleType?.name ?? "") // (tipo del vehículo)
+        params["brand"] = vehicle.brand // (marca del vehículo)
+        params["model"] = vehicle.model // (modelo del vehículo)
+        params["color"] = String(vehicle.color?.name ?? "") // (color del vehículo)
+        params["policy_number"] = vehicle.policy?.policyNumber // (número de la póliza)
+        params["policy_end"] = vehicle.policy?.policyEnd // (fecha caducidad de la póliza)
+        params["policy_identity_type"] = String(vehicle.policy?.identityType?.name ?? "") // (tipo de documento identidad del asegurador)
+        params["policy_dni"] = vehicle.policy?.dni // (documento de identidad del asegurador)
+        
+        params["incidenceTypeId"] = String(incidence.incidenceType?.externalId ?? "0") // (identificador numérico del tipo de incidencia)
+        params["street"] = incidence.street
+        params["city"] = incidence.city
+        params["country"] = incidence.country
+        params["latitude"] = String(incidence.latitude ?? 0)
+        params["longitude"] = String(incidence.longitude ?? 0)
+        params["fromNotification"] = "0" //  (0: reportado manualmente. 1: reportado por baliza)
+        params["externalIncidenceId"] = incidence.externalIncidenceId
+        
+        simpleRequest(method: .post, path: "sdk/incidence", params: params, completion: completion)
+    }
+    
     func closeIncidence(incidenceId: Int, completion: @escaping (IResponse) -> Void)
     {
         let path = "incidence/close/" + String(incidenceId)
@@ -751,6 +813,35 @@ extension Api {
             
             completion(result)
         })
+    }
+    
+    func putIncidenceSdk(vehicle:Vehicle, user: User, incidence: Incidence, completion: @escaping (IResponse) -> Void)
+    {
+        var params:Parameters = [:]
+        
+        params["external_user_id"] = user.externalUserId // (identificador externo del usuario)
+        params["name"] = user.name // (nombre del usuario)
+        params["phone"] = user.phone // (teléfono)
+        params["email"] = user.email // (e-mail)
+        params["identity_type"] = String(user.identityType?.name ?? "") // (tipo de documento de identidad: dni, nie, cif)
+        params["dni"] = user.dni // (número del documento de identidad)
+        params["birthday"] = user.birthday // (fecha de Nacimiento)
+        params["check_terms"] = user.checkTerms // (aceptación de la privacidad)
+        params["external_vehicle_id"] = vehicle.externalVehicleId // (identificador externo del vehículo)
+        params["license_plate"] = vehicle.licensePlate // (matrícula del vehículo)
+        params["registration_year"] = vehicle.registrationYear // (fecha de matriculación)
+        params["vehicle_type"] = String(vehicle.vehicleType?.name ?? "") // (tipo del vehículo)
+        params["brand"] = vehicle.brand // (marca del vehículo)
+        params["model"] = vehicle.model // (modelo del vehículo)
+        params["color"] = String(vehicle.color?.name ?? "") // (color del vehículo)
+        params["policy_number"] = vehicle.policy?.policyNumber // (número de la póliza)
+        params["policy_end"] = vehicle.policy?.policyEnd // (fecha caducidad de la póliza)
+        params["policy_identity_type"] = String(vehicle.policy?.identityType?.name ?? "") // (tipo de documento identidad del asegurador)
+        params["policy_dni"] = vehicle.policy?.dni // (documento de identidad del asegurador)
+        
+        params["externalIncidenceId"] = incidence.externalIncidenceId
+        
+        simpleRequest(method: .put, path: "sdk/incidence", params: params, completion: completion)
     }
     
     func cancelIncidence(incidenceId: Int, completion: @escaping (IResponse) -> Void)
@@ -851,6 +942,60 @@ extension Api {
     {
         let path = "partners/iot_check/" + beaconImei
         simpleRequest(method: .get, path: path, completion: completion)
+    }
+    
+    func getBeaconSdk(vehicle:Vehicle, user: User, completion: @escaping (IResponse) -> Void)
+    {
+        var params:Parameters = [:]
+        
+        params["external_user_id"] = user.externalUserId // (identificador externo del usuario)
+        params["name"] = user.name // (nombre del usuario)
+        params["phone"] = user.phone // (teléfono)
+        params["email"] = user.email // (e-mail)
+        params["identity_type"] = String(user.identityType?.name ?? "") // (tipo de documento de identidad: dni, nie, cif)
+        params["dni"] = user.dni // (número del documento de identidad)
+        params["birthday"] = user.birthday // (fecha de Nacimiento)
+        params["check_terms"] = user.checkTerms // (aceptación de la privacidad)
+        params["external_vehicle_id"] = vehicle.externalVehicleId // (identificador externo del vehículo)
+        params["license_plate"] = vehicle.licensePlate // (matrícula del vehículo)
+        params["registration_year"] = vehicle.registrationYear // (fecha de matriculación)
+        params["vehicle_type"] = String(vehicle.vehicleType?.name ?? "") // (tipo del vehículo)
+        params["brand"] = vehicle.brand // (marca del vehículo)
+        params["model"] = vehicle.model // (modelo del vehículo)
+        params["color"] = String(vehicle.color?.name ?? "") // (color del vehículo)
+        params["policy_number"] = vehicle.policy?.policyNumber // (número de la póliza)
+        params["policy_end"] = vehicle.policy?.policyEnd // (fecha caducidad de la póliza)
+        params["policy_identity_type"] = String(vehicle.policy?.identityType?.name ?? "") // (tipo de documento identidad del asegurador)
+        params["policy_dni"] = vehicle.policy?.dni // (documento de identidad del asegurador)
+        
+        simpleRequest(method: .put, path: "sdk/beacon", params: params, completion: completion)
+    }
+    
+    func getBeaconDetailSdk(vehicle:Vehicle, user: User, completion: @escaping (IResponse) -> Void)
+    {
+        var params:Parameters = [:]
+        
+        params["external_user_id"] = user.externalUserId // (identificador externo del usuario)
+        params["name"] = user.name // (nombre del usuario)
+        params["phone"] = user.phone // (teléfono)
+        params["email"] = user.email // (e-mail)
+        params["identity_type"] = String(user.identityType?.name ?? "") // (tipo de documento de identidad: dni, nie, cif)
+        params["dni"] = user.dni // (número del documento de identidad)
+        params["birthday"] = user.birthday // (fecha de Nacimiento)
+        params["check_terms"] = user.checkTerms // (aceptación de la privacidad)
+        params["external_vehicle_id"] = vehicle.externalVehicleId // (identificador externo del vehículo)
+        params["license_plate"] = vehicle.licensePlate // (matrícula del vehículo)
+        params["registration_year"] = vehicle.registrationYear // (fecha de matriculación)
+        params["vehicle_type"] = String(vehicle.vehicleType?.name ?? "") // (tipo del vehículo)
+        params["brand"] = vehicle.brand // (marca del vehículo)
+        params["model"] = vehicle.model // (modelo del vehículo)
+        params["color"] = String(vehicle.color?.name ?? "") // (color del vehículo)
+        params["policy_number"] = vehicle.policy?.policyNumber // (número de la póliza)
+        params["policy_end"] = vehicle.policy?.policyEnd // (fecha caducidad de la póliza)
+        params["policy_identity_type"] = String(vehicle.policy?.identityType?.name ?? "") // (tipo de documento identidad del asegurador)
+        params["policy_dni"] = vehicle.policy?.dni // (documento de identidad del asegurador)
+        
+        simpleRequest(method: .put, path: "sdk/iot_check", params: params, completion: completion)
     }
 }
 

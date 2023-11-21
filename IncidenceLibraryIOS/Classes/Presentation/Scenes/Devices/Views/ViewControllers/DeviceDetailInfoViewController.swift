@@ -34,8 +34,10 @@ class DeviceDetailInfoViewController: IABaseViewController, StoryboardInstantiab
     var closedAlertStopDevice: Bool = false
     var closedAlertNewIncidence: Bool = false
     
+    private var device: Beacon?
+    
     static var storyboardFileName = "DevicesScene"
-    private var viewModel: DeviceDetailViewModel! { get { return baseViewModel as? DeviceDetailViewModel }}
+    private var viewModel: DeviceDetailSdkViewModel! { get { return baseViewModel as? DeviceDetailSdkViewModel }}
     
     lazy var alertStopDeviceView: UIView = {
         let customTitleText = "stop_device".localized()
@@ -205,8 +207,10 @@ class DeviceDetailInfoViewController: IABaseViewController, StoryboardInstantiab
     }()
     
     // MARK: - Lifecycle
-    static func create(with viewModel: DeviceDetailViewModel) -> DeviceDetailInfoViewController {
-        let view = DeviceDetailInfoViewController.instantiateViewController()
+    static func create(with viewModel: DeviceDetailSdkViewModel) -> DeviceDetailInfoViewController {
+        let bundle = Bundle(for: Self.self)
+        
+        let view = DeviceDetailInfoViewController.instantiateViewController(bundle)
         view.baseViewModel = viewModel
         
         return view
@@ -318,91 +322,92 @@ class DeviceDetailInfoViewController: IABaseViewController, StoryboardInstantiab
     }
     
     func refreshData() {
-        if let imei = viewModel.device.imei {
-            Api.shared.getBeaconDetail(beaconImei: imei, completion: { result in
-                
-                if (result.isSuccess())
-                {
-                    //let dataSTR = "{\"dgt\":0,\"incidences\": [{\"hour\":\"17:23\"}],\"expirationDate\":\"2037-12-31 23:59:59\",\"battery\":27.999999999999972,\"imei\":\"869154040054509\"}";
-                    //let data = "{\"dgt\":0,\"incidences\":[{\"hour\":\"17:23\",\"id\":1,\"lat\":41.38879,\"lon\":2.1589900000000002,\"date\":\"27/10/2022\"},{\"hour\":\"22:10\",\"id\":2,\"lat\":41.38879,\"lon\":2.1589900000000002,\"date\":\"21/10/2022\"},{\"hour\":\"11:20\",\"id\":3,\"lat\":41.38879,\"lon\":2.1589900000000002,\"date\":\"16/10/2022\"},{\"hour\":\"09:33\",\"id\":4,\"lat\":41.38879,\"lon\":2.1589900000000002,\"date\":\"08/10/2022\"},{\"hour\":\"10:00\",\"id\":5,\"lat\":41.38879,\"lon\":2.1589900000000002,\"date\":\"01/10/2022\"}],\"expirationDate\":\"2037-12-31 23:59:59\",\"battery\":27.999999999999972,\"imei\":\"869154040054509\"}";
-                    if let data = result.getJSONString(key: "data") {
-                    //if data != "" {
-                        print(data)
-                        if let dataDic = StringUtils.convertToDictionary(text: data) {
-                            print("TENEMOS DATA")
-                            self.battery = Float(dataDic["battery"] as! Double)
-                            self.expirationDate = dataDic["expirationDate"] as! String
-                            self.dgt = dataDic["dgt"] as! Int
-                            let incidencesVal: [NSDictionary]? = dataDic["incidences"] as? [NSDictionary]
+        let user = viewModel.user
+        let vehicle = viewModel.vehicle
+        
+        Api.shared.getBeaconDetailSdk(vehicle: vehicle, user: user, completion: { result in
+            
+            if (result.isSuccess())
+            {
+                //let dataSTR = "{\"dgt\":0,\"incidences\": [{\"hour\":\"17:23\"}],\"expirationDate\":\"2037-12-31 23:59:59\",\"battery\":27.999999999999972,\"imei\":\"869154040054509\"}";
+                //let data = "{\"dgt\":0,\"incidences\":[{\"hour\":\"17:23\",\"id\":1,\"lat\":41.38879,\"lon\":2.1589900000000002,\"date\":\"27/10/2022\"},{\"hour\":\"22:10\",\"id\":2,\"lat\":41.38879,\"lon\":2.1589900000000002,\"date\":\"21/10/2022\"},{\"hour\":\"11:20\",\"id\":3,\"lat\":41.38879,\"lon\":2.1589900000000002,\"date\":\"16/10/2022\"},{\"hour\":\"09:33\",\"id\":4,\"lat\":41.38879,\"lon\":2.1589900000000002,\"date\":\"08/10/2022\"},{\"hour\":\"10:00\",\"id\":5,\"lat\":41.38879,\"lon\":2.1589900000000002,\"date\":\"01/10/2022\"}],\"expirationDate\":\"2037-12-31 23:59:59\",\"battery\":27.999999999999972,\"imei\":\"869154040054509\"}";
+                if let data = result.getJSONString(key: "data") {
+                //if data != "" {
+                    print(data)
+                    if let dataDic = StringUtils.convertToDictionary(text: data) {
+                        print("TENEMOS DATA")
+                        self.battery = Float(dataDic["battery"] as! Double)
+                        self.expirationDate = dataDic["expirationDate"] as! String
+                        self.dgt = dataDic["dgt"] as! Int
+                        let incidencesVal: [NSDictionary]? = dataDic["incidences"] as? [NSDictionary]
+                        
+                        
+                        // print(incidencesVal)
+                        //if let incidencesValT = incidencesVal {
+                        //    print(incidencesValT)
+                        //}
+                        
+                        if let incidencesVal = incidencesVal {
+                            self.incidences.removeAll()
                             
-                            
-                            // print(incidencesVal)
-                            //if let incidencesValT = incidencesVal {
-                            //    print(incidencesValT)
-                            //}
-                            
-                            if let incidencesVal = incidencesVal {
-                                self.incidences.removeAll()
+                            for incidence in incidencesVal {
+                                //print("\(incidence.hour) is from \(incidence.id)")
+                                print (incidence)
                                 
-                                for incidence in incidencesVal {
-                                    //print("\(incidence.hour) is from \(incidence.id)")
-                                    print (incidence)
-                                    
-                                    let lat: Double = incidence["lat"] as! Double
-                                    let lon: Double = incidence["lon"] as! Double
-                                    let date: String = incidence["date"] as! String
-                                    let hour: String = incidence["hour"] as! String
+                                let lat: Double = incidence["lat"] as! Double
+                                let lon: Double = incidence["lon"] as! Double
+                                let date: String = incidence["date"] as! String
+                                let hour: String = incidence["hour"] as! String
 
-                                    let incidenceDGT: IncidenceDGT = IncidenceDGT()
-                                    incidenceDGT.lat = lat;
-                                    incidenceDGT.lon = lon;
-                                    incidenceDGT.date = date;
-                                    incidenceDGT.hour = hour;
+                                let incidenceDGT: IncidenceDGT = IncidenceDGT()
+                                incidenceDGT.lat = lat;
+                                incidenceDGT.lon = lon;
+                                incidenceDGT.date = date;
+                                incidenceDGT.hour = hour;
 
-                                    //ListItem li = new ListItem("20-05-2021, 16:45h", "");
-                                    self.incidences.append(incidenceDGT);
-                                }
+                                //ListItem li = new ListItem("20-05-2021, 16:45h", "");
+                                self.incidences.append(incidenceDGT);
                             }
-                            
-                            self.changeView()
-                            if (self.dgt == 0) {
-                                self.openAlertStopDeviceView()
-                            } else if (self.dgt == 1) {
-                                /*
-                                if (!self.hasVibrate) {
-                                    self.hasVibrate = true;
-                                    AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-                                }
-                                */
-                                self.startCountDownTimerVibrate()
-                                
-                                self.closeAlertStopDeviceView()
-                                self.openAlertNewIncidenceView()
-                            }
-                            self.callRetry()
-                        } else {
-                            print("NOOOOO TENEMOS DATA ")
-                            if (self.expirationDate != "") {
-                                self.closeAlertStopDeviceView()
-                                self.closeAlertNewIncidenceView()
-                                self.stopTimerVibrate()
-                            }
-                            
-                            self.callRetry()
                         }
+                        
+                        self.changeView()
+                        if (self.dgt == 0) {
+                            self.openAlertStopDeviceView()
+                        } else if (self.dgt == 1) {
+                            /*
+                            if (!self.hasVibrate) {
+                                self.hasVibrate = true;
+                                AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+                            }
+                            */
+                            self.startCountDownTimerVibrate()
+                            
+                            self.closeAlertStopDeviceView()
+                            self.openAlertNewIncidenceView()
+                        }
+                        self.callRetry()
                     } else {
+                        print("NOOOOO TENEMOS DATA ")
+                        if (self.expirationDate != "") {
+                            self.closeAlertStopDeviceView()
+                            self.closeAlertNewIncidenceView()
+                            self.stopTimerVibrate()
+                        }
+                        
                         self.callRetry()
                     }
                 } else {
-                    self.stopTimer()
-                    self.stopTimerVibrate()
-                    self.onBadResponse(result: result, handler: { UIAlertAction in
-                        self.backPressed()
-                    })
+                    self.callRetry()
                 }
-                //self.changeView()
-           })
-        }
+            } else {
+                self.stopTimer()
+                self.stopTimerVibrate()
+                self.onBadResponse(result: result, handler: { UIAlertAction in
+                    self.backPressed()
+                })
+            }
+            //self.changeView()
+       })
     }
     
     func callRetry() {
@@ -455,8 +460,11 @@ class DeviceDetailInfoViewController: IABaseViewController, StoryboardInstantiab
         
         fechaTextFieldView.configure(titleText: "device_expiration".localized(), valueText: expirationDate);
         batteryExpirationView.configure(titleText: "device_battery_status".localized(), progress: battery , completion: {
-            if let beacon = self.viewModel {
-                let vc = DeviceInfoViewController.create(with: beacon)
+            if let device = self.device {
+                
+                let deviceModel: DeviceDetailViewModel = DeviceDetailViewModel(device: device)
+                
+                let vc = DeviceInfoViewController.create(with: deviceModel)
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         })
@@ -488,9 +496,9 @@ class DeviceDetailInfoViewController: IABaseViewController, StoryboardInstantiab
     }
     
     @objc func createInc() {
-        let vm = ReportTypeViewModel(vehicle: viewModel.device.vehicle, vehicleTmp: viewModel.device.vehicle, openFromNotification: false)
-        let viewController = ReportTypeViewController.create(with: vm)
-        navigationController?.pushViewController(viewController, animated: true)
+        //let vm = ReportTypeViewModel(vehicle: viewModel.device.vehicle, vehicleTmp: viewModel.device.vehicle, openFromNotification: false)
+        //let viewController = ReportTypeViewController.create(with: vm)
+        //navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
