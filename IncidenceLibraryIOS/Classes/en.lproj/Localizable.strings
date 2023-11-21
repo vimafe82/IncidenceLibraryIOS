@@ -979,6 +979,7 @@ Todo ello sin perjuicio de que dicho plazo pueda ampliarse, cuando usted así lo
 "device_desc_info3" = "Una vez haya montado las nuevas pilas introduzca la tapa de nuevo colocándola como en el esquema, encaje, y presione hasta oír clic.Verifique que su equipo funciona correctamente";
 "device_desc_info_finish" = "Finalizar";
 "device_expiration" = "Fecha de caducidad";
+"device_battery_status" = "Estado de la batería";
 "alert_new_incidence_title" = "¿Tienes una incidencia real?";
 "alert_new_incidence_subtitle" = "Tu baliza ya ha notificado a la DGT tu detención en la vía";
 "faqs_url" = "https://soporte.incidence.eu/hc/en-gb";
