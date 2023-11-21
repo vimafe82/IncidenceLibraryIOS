@@ -146,10 +146,10 @@ class MenuViewController: UIViewController, StoryboardInstantiable {
             let viewModel = DeviceListViewModel()
             let viewController = DeviceListViewController.create(with: viewModel)
             navigationController?.pushViewController(viewController, animated: false)
-        case buyButton:
-            let viewModel = EcommerceViewModel()
-            let viewController = EcommerceVC.create(with: viewModel)
-            navigationController?.pushViewController(viewController, animated: false)
+        //case buyButton:
+            //let viewModel = EcommerceViewModel()
+            //let viewController = EcommerceVC.create(with: viewModel)
+            //navigationController?.pushViewController(viewController, animated: false)
         case addButton:
             let viewModel = AddSelectionViewModel()
             let viewController = AddSelectionViewController.create(with: viewModel)

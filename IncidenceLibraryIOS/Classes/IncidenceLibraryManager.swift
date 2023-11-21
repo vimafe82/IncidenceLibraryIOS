@@ -88,6 +88,7 @@
                 
                 self.screens = result.getList(key: "functionalities") ?? [String]()
                 self.screens.append(Constants.SCREEN_DEVICE_CREATE)
+                self.screens.append(Constants.SCREEN_ECOMMERCE)
                 
                 Core.shared.registerDevice()
             }
@@ -168,11 +169,8 @@
     public func getEcommerceViewController(user: User!, vehicle: Vehicle!) -> IABaseViewController {
         let res = validateScreen(screen: Constants.SCREEN_ECOMMERCE)
         if (res == "SCREEN_OK") {
-            let vm = RegistrationBeaconViewModel(origin: .addBeacon)
-            vm.fromBeacon = true
-            vm.user = user
-            vm.vehicle = vehicle
-            let viewController = RegistrationBeaconSelectTypeViewController.create(with: vm)
+            let vm = EcommerceViewModel(vehicle: vehicle, user: user)
+            let viewController = EcommerceVC.create(with: vm)
             return viewController
             
         } else {
