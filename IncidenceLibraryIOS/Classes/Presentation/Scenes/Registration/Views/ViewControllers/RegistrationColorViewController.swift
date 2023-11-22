@@ -8,7 +8,7 @@
 
 import UIKit
 import Kingfisher
-import Hue
+// import Hue
 
 class RegistrationColorViewController: IABaseViewController, StoryboardInstantiable {
 
@@ -94,7 +94,7 @@ class RegistrationColorViewController: IABaseViewController, StoryboardInstantia
                 let view = UIView()
                 view.translatesAutoresizingMaskIntoConstraints = false
                 view.anchor(widthConstant: 48, heightConstant: 48)
-                view.backgroundColor = UIColor(hex: type.color ?? "")
+                //view.backgroundColor = UIColor(hex: type.color ?? "")
                 view.layer.cornerRadius = 24
                 view.layer.borderWidth = 1
                 view.layer.borderColor = UIColor.app(.black300)?.cgColor

@@ -51,6 +51,6 @@ TODO: Add long description of the pod here.
   # s.dependency 'AFNetworking', '~> 2.3'
   s.dependency 'Kingfisher'
   s.dependency 'Alamofire'
-  s.dependency 'Hue'
+  # s.dependency 'Hue'
   s.dependency 'youtube-ios-player-helper'
 end
