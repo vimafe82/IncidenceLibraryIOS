@@ -91,6 +91,8 @@ class RegistrationBeaconSelectTypeViewController: IABaseViewController, Storyboa
     
     func openScan()
     {
+        tableView.isUserInteractionEnabled = false
+        
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
         var navigationHeigth = CGFloat(44)
@@ -391,6 +393,8 @@ class RegistrationBeaconSelectTypeViewController: IABaseViewController, Storyboa
         qrCodeFrameView.removeFromSuperview()
         scanView.removeFromSuperview()
         cameraTitleButton.removeFromSuperview()
+        
+        tableView.isUserInteractionEnabled = true
     }
     
     
