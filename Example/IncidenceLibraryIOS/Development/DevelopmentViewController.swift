@@ -40,7 +40,6 @@ class DevelopmentViewController: UIViewController, StoryboardInstantiable {
         let externalVehicleId = "25001"
         let licensePlate = "2511XXX"
         let externalIncidenceId = "25001"
-        let imei = "869154040054509"
         
         dniIdentityType = IdentityType();
         dniIdentityType.name = "dni"; // (tipo de documento de identidad: dni, nie, cif)

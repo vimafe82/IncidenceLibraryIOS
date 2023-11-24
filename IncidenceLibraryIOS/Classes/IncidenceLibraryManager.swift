@@ -15,10 +15,6 @@
     private var screens: [String] = [String]()
 
     public class func setup(_ config: IncidenceLibraryConfig) {
-        //IncidenceLibraryManager.config = config
-        //shared.config = config
-        //shared.validateApiKey();
-        
         IncidenceLibraryManager.shared = IncidenceLibraryManager(config: config)
         Api.shared.setup(env: config.env);
         shared.initFonts()
@@ -80,8 +76,6 @@
     ) {
         Api.shared.validateApiKey(apiKey: apiKey, completion: { result in
             
-            print("IncidenceLibraryManager setConnectionInfoAndConnect finish")
-            
             if (result.isSuccess())
             {
                 self.validApiKey = true
@@ -91,6 +85,18 @@
                 self.screens.append(Constants.SCREEN_ECOMMERCE)
                 
                 Core.shared.registerDevice()
+                
+                var valores = result.getJSONString(key: "literals")
+                
+                //self    String    "select_beacon_type_iot"
+                //valores = "{\"select_beacon_type_iot\":\"Help Flash IoT\"}"
+                if (valores != nil)
+                {
+                    valores = valores?.replacingOccurrences(of: "\\/", with: "/")
+                    //valores = valores?.replacingOccurrences(of: "\\n", with: "\n") ya no lo hacemos aquí. se hace al hacer e localized() porque sino se cargaba la estructura de json
+                    Prefs.saveString(key: Constants.KEY_LITERALS_VALUES, value: valores!)
+                    Core.shared.updateLiterals(forceUpdate: false)
+                }
             }
             else
             {

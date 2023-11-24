@@ -29,7 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       let apiKey = "bWFwZnJlX2NsaWVudDpkOTBlMTA3ZjdhNGU1NmQyYzlkMTJhMHM3ZTQ1ZDQ1MQ=="
       let config = IncidenceLibraryConfig(apiKey: .init(apiKey), env: .PRE)
       IncidenceLibraryManager.setup(config)
-      IncidenceLibraryManager.shared.printStatusConfig()
       
       let firstViewController = DevelopmentViewController.create()
       let rootVC = UINavigationController(rootViewController: firstViewController)
