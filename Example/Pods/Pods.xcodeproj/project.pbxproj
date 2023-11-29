@@ -368,6 +368,7 @@
 		E350907483A980EC32C36A04AD4B3503 /* IResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CE898940B3D5D6FC46AE2FFC79444F /* IResponse.swift */; };
 		E46C1D557CDE3875D8A22E868FF3FC0B /* Pods-IncidenceLibraryIOS_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D32BA7F71888DE57D1F3E326D673B850 /* Pods-IncidenceLibraryIOS_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5522694CC2EA58312459F4730985666 /* NSTextAttachment+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77E71E2E8CF6308B2D6203235362DD0 /* NSTextAttachment+Kingfisher.swift */; };
+		E5D868542B17573800F9CB7B /* BeaconData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D868532B17573800F9CB7B /* BeaconData.swift */; };
 		E61E4E1DF791252FA42033D48545E2D9 /* UIStackView+RemoveAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9126BD7CE7585A7F65D5CFD426B022AA /* UIStackView+RemoveAll.swift */; };
 		E6251F02EE12804D1B66AE32E716E664 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D271E61EABF97D6E283120E11EC43A /* SessionDelegate.swift */; };
 		E6578E90535966F055BDB5C92609BEAA /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88ABD322C2BB69D5B1868E4D435810D /* UIView+Extensions.swift */; };
@@ -876,6 +877,7 @@
 		E2474AEBA22DF360516F6788794FB888 /* Filter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Filter.swift; path = Sources/Image/Filter.swift; sourceTree = "<group>"; };
 		E49A0296A7E90FBAFB7939A54BC7004F /* EcommerceViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EcommerceViewModel.swift; sourceTree = "<group>"; };
 		E582F02016503857F37324CDAEC12E48 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
+		E5D868532B17573800F9CB7B /* BeaconData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconData.swift; sourceTree = "<group>"; };
 		E5DBA4F4946DBABD4C740A4144939CC7 /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E6E16721BFD437453DCD85F6BA04EFF4 /* Pods-IncidenceLibraryIOS_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-IncidenceLibraryIOS_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		E72A0426EFE5F776DD28C652D3FFF661 /* KeyboardDismiss.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KeyboardDismiss.swift; sourceTree = "<group>"; };
@@ -1615,6 +1617,7 @@
 				6003EC675516D416AD29EC6876463647 /* Vehicle.swift */,
 				6B26F7FF1A285724D0E04B245D4A7D6D /* VehicleType.swift */,
 				4B8684D78461FFD16A7418749ECF20BA /* Versions.swift */,
+				E5D868532B17573800F9CB7B /* BeaconData.swift */,
 			);
 			name = Domain;
 			path = IncidenceLibraryIOS/Classes/Domain;
@@ -2597,6 +2600,7 @@
 				8949DC717C8244074D47EC15F4B5F8F5 /* ReportIDKViewController.swift in Sources */,
 				6662C757F182749A1274748316A802AE /* ReportIDKViewModel.swift in Sources */,
 				BF475E49CC04D93F44F0EBD46C7D79DF /* ReportIncidenceSimpleScene.storyboard in Sources */,
+				E5D868542B17573800F9CB7B /* BeaconData.swift in Sources */,
 				D4F5444D22C3589697B2657A67DD9FE3 /* ReportIncidenceSimpleViewController.swift in Sources */,
 				50BC9D3E7F446339BC5DE528E9613355 /* ReportIncidenceSimpleViewModel.swift in Sources */,
 				D23DF875F89A1752E3BACCAE37FACF11 /* ReportInstructionsViewController.swift in Sources */,

@@ -29,7 +29,7 @@ public final class ImeiPopUpModalViewController: UIViewController, TextFieldView
         let view = ImeiPopUpModalViewController.create(delegate: delegate)
         view.modalPresentationStyle = .overFullScreen
         //view.modalTransitionStyle = .coverVertical
-        initialView.present(view, animated: true)
+        initialView.present(view, animated: false)
         return view
     }
     
@@ -110,7 +110,6 @@ public final class ImeiPopUpModalViewController: UIViewController, TextFieldView
         imeiTextFieldView.title = "IMEI"
         imeiTextFieldView.placeholder = "IMEI"
         imeiTextFieldView.value = ""
-        imeiTextFieldView.value = "869154040415403"
         imeiTextFieldView.isUserInteractionEnabled = true
         imeiTextFieldView.isMultipleTouchEnabled = false
         imeiTextFieldView.disablePadding()
