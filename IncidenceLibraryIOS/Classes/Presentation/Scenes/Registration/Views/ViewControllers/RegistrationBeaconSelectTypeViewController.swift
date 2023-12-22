@@ -72,6 +72,9 @@ class RegistrationBeaconSelectTypeViewController: IABaseViewController, Storyboa
         if (showIOTNumber == 0) {
             hideIOT = true;
         }
+        
+        IncidenceLibraryManager.shared.setViewBackground(view: self.view)
+        IncidenceLibraryManager.shared.setTextColor(view: helperLabel)
     }
     
     @IBAction func skipAction(_ sender: UIButton) {

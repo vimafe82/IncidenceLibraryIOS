@@ -275,7 +275,25 @@ class DeviceDetailInfoViewController: IABaseViewController, StoryboardInstantiab
     }
     
     override func loadData() {
-        refreshData();
+        Api.shared.getBeaconSdk(vehicle: viewModel.vehicle, user: viewModel.user, completion: { result in
+            
+            if (result.isSuccess())
+            {
+                let beacons = result.getList(key: "beacon") ?? [Beacon]()
+                if (beacons.count > 0) {
+                    //self.device = beacons[0]
+                    self.viewModel.device = beacons[0]
+                }
+                self.refreshData()
+            }
+            else
+            {
+                self.hideHUD()
+                self.onBadResponse(result: result, handler: { UIAlertAction in
+                    self.backPressed()
+                })
+            }
+       })
     }
     
     private func setUpNavigation() {
